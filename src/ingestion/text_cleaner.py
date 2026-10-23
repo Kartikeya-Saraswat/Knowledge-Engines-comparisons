@@ -16,6 +16,7 @@ def clean_extracted_text(text: str) -> str:
         "Â©": "©",
         "Â®": "®",
         "Â ": " ",
+        "â€¯": "\u202f",
     }
 
     for broken, corrected in replacements.items():
