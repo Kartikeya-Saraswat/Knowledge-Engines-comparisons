@@ -1,0 +1,73 @@
+
+[
+  {
+    "source": {
+      "id": "KC-SOIL-001",
+      "title": "Soil Erosion",
+      "description": "The removal of topsoil by water and wind."
+    },
+    "candidate": {
+      "id": "KC-SOIL-002",
+      "title": "Soil Conservation Methods",
+      "description": "Methods such as contour ploughing and terracing that reduce soil loss."
+    },
+    "related": true,
+    "reason": "Conservation methods directly address soil erosion."
+  },
+  {
+    "source": {
+      "id": "KC-SOIL-001",
+      "title": "Soil Erosion",
+      "description": "The removal of topsoil by water and wind."
+    },
+    "candidate": {
+      "id": "KC-SOIL-003",
+      "title": "Causes of Soil Erosion",
+      "description": "Factors such as rainfall, wind, and deforestation that increase soil erosion."
+    },
+    "related": true,
+    "reason": "The candidate explains the causes of the source concept."
+  },
+  {
+    "source": {
+      "id": "KC-SOIL-001",
+      "title": "Soil Erosion",
+      "description": "The removal of topsoil by water and wind."
+    },
+    "candidate": {
+      "id": "KC-ECON-001",
+      "title": "Foreign Exchange Rates",
+      "description": "How currency values change in international markets."
+    },
+    "related": false,
+    "reason": "The concepts have no meaningful explanatory or practical relationship."
+  },
+  {
+    "source": {
+      "id": "KC-RESOURCE-001",
+      "title": "Resource Planning",
+      "description": "Identifying and allocating resources to meet objectives."
+    },
+    "candidate": {
+      "id": "KC-RESOURCE-002",
+      "title": "Regional Resource Disparities",
+      "description": "Differences in resource availability between regions."
+    },
+    "related": true,
+    "reason": "Resource availability and disparities are relevant to resource planning."
+  },
+  {
+    "source": {
+      "id": "KC-RESOURCE-001",
+      "title": "Resource Planning",
+      "description": "Identifying and allocating resources to meet objectives."
+    },
+    "candidate": {
+      "id": "KC-SPORT-001",
+      "title": "Cricket Fielding Positions",
+      "description": "The positions players occupy when fielding in cricket."
+    },
+    "related": false,
+    "reason": "The concepts have no meaningful relationship."
+  }
+]
