@@ -76,6 +76,8 @@ def analyze_semantic_quality(
 
     concepts = []
     for path in sorted(okf_dir.glob("*.md")):
+        if path.name.lower() == "index.md":
+            continue
         concept = read_okf_concept(path)
         concept["tokens"] = tokenize(
             concept["title"] + " " + concept["body"]
@@ -98,6 +100,8 @@ def analyze_semantic_quality(
         concept["source_overlap"] = overlap
         concept["source_pages"] = sorted(source_pages)
         concepts.append(concept)
+
+
 
     grounding_flags = []
     for concept in concepts:

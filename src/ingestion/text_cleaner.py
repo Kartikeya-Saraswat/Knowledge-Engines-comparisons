@@ -1,27 +1,34 @@
 
+REPLACEMENTS = {
+    "â€™": "’",
+    "â€˜": "‘",
+    "â€œ": "“",
+    "â€\x9d": "”",
+    "â€“": "–",
+    "â€”": "—",
+    "â€¦": "…",
+    "â€¢": "•",
+    "Â©": "©",
+    "Â®": "®",
+    "Â ": " ",
+    "â€¯": "\u202f",
+    "â€‘": "-",
+}
+
+
+def fix_encoding_artifacts(text: str) -> str:
+    """Fix known encoding artefacts without changing whitespace."""
+    for broken, corrected in REPLACEMENTS.items():
+        text = text.replace(broken, corrected)
+    return text
+
+
 def clean_extracted_text(text: str) -> str:
     """Normalize common PDF text encoding artefacts and whitespace."""
     if not text:
         return ""
 
-    replacements = {
-        "â€™": "’",
-        "â€˜": "‘",
-        "â€œ": "“",
-        "â€\x9d": "”",
-        "â€“": "–",
-        "â€”": "—",
-        "â€¦": "…",
-        "â€¢": "•",
-        "Â©": "©",
-        "Â®": "®",
-        "Â ": " ",
-        "â€¯": "\u202f",
-    }
-
-    for broken, corrected in replacements.items():
-        text = text.replace(broken, corrected)
-
+    text = fix_encoding_artifacts(text)
     text = text.replace("\r\n", "\n").replace("\r", "\n")
     lines = [line.strip() for line in text.splitlines()]
 

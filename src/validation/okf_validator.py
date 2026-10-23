@@ -87,7 +87,11 @@ def validate_okf_directory(directory: str | Path) -> dict[str, list[str]]:
     if not directory.is_dir():
         raise NotADirectoryError(f"Directory not found: {directory}")
 
-    files = sorted(directory.glob("*.md"))
+    files = sorted(
+    path
+    for path in directory.glob("*.md")
+    if path.name.lower() != "index.md"
+    )
     results = {}
     ids_to_files = {}
 

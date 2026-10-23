@@ -179,6 +179,7 @@ def validate_provenance_directory(
     extraction = load_extraction(extraction_path)
 
     return {
-        path.name: validate_provenance(path, extraction)
-        for path in sorted(okf_dir.glob("*.md"))
+    path.name: validate_provenance(path, extraction)
+    for path in sorted(okf_dir.glob("*.md"))
+    if path.name.lower() != "index.md"
     }
