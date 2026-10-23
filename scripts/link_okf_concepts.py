@@ -1,4 +1,5 @@
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -14,14 +15,32 @@ from src.generation.okf_linker import (
 from src.validation.link_validator import validate_markdown_links
 
 
-SOURCE_NAME = "jess101"
-OUTPUT_DIR = PROJECT_ROOT / "data" / "output" / "okf" / SOURCE_NAME
+OUTPUT_ROOT = PROJECT_ROOT / "data" / "output" / "okf"
+
+
+def normalize_source_name(value: str) -> str:
+    """Accept a bundle name, PDF name, or JSON name."""
+    return Path(value).stem
 
 
 def main():
-    print(f"Loading concepts from: {OUTPUT_DIR}")
+    parser = argparse.ArgumentParser(
+        description="Link related concepts in an OKF knowledge bundle."
+    )
+    parser.add_argument(
+        "source",
+        nargs="?",
+        default="jess101",
+        help="Knowledge bundle, PDF, or JSON name (default: jess101)",
+    )
+    args = parser.parse_args()
 
-    catalogue = load_concept_catalogue(OUTPUT_DIR)
+    source_name = normalize_source_name(args.source)
+    output_dir = OUTPUT_ROOT / source_name
+
+    print(f"Loading concepts from: {output_dir}")
+
+    catalogue = load_concept_catalogue(output_dir)
 
     if not catalogue:
         raise RuntimeError(
@@ -29,8 +48,8 @@ def main():
         )
 
     print(f"Loaded {len(catalogue)} concepts.")
-
     print("Finding related concepts using Groq...")
+
     relationships = find_related_concepts(
         catalogue,
         max_related=3,
@@ -40,10 +59,10 @@ def main():
     linked_paths = write_related_links(catalogue, relationships)
 
     print("Generating index.md...")
-    index_path = write_concept_index(catalogue, OUTPUT_DIR)
+    index_path = write_concept_index(catalogue, output_dir)
 
     print("Validating Markdown links...")
-    errors = validate_markdown_links(OUTPUT_DIR)
+    errors = validate_markdown_links(output_dir)
 
     print(f"Updated {len(linked_paths)} concept files.")
     print(f"Created index: {index_path.name}")

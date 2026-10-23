@@ -165,7 +165,7 @@ def write_okf_concepts(
     for index, concept in enumerate(concepts, start=start_index):
         title = concept["title"]
         slug = slugify(title)
-        concept_number = start_index + index - 1
+        concept_number = index 
         concept_id = f"KC-{Path(source_file).stem.upper()}-{concept_number:03d}"
 
         metadata = {
