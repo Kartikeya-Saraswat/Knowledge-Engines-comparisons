@@ -3,6 +3,7 @@ import json
 import os
 import re
 from pathlib import Path
+from unittest import result
 
 import yaml
 from dotenv import load_dotenv
@@ -82,11 +83,15 @@ Input text:
             {"role": "user", "content": prompt},
         ],
         format="json",
-        options={"temperature": 0.1},
+        think=False,
+        options={"temperature": 0.1, "num_predict": 2048},
     )
 
+    print("DEBUG: Raw model response:", response.message.content)
+    
     result = json.loads(response.message.content)
     concepts = result.get("concepts", [])
+    print("DEBUG: Concepts returned:", len(concepts))
 
     if not isinstance(concepts, list):
         raise ValueError("The model response must contain a concepts list.")
