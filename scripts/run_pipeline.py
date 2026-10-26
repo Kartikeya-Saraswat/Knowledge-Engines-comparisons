@@ -37,6 +37,13 @@ from src.validation.relationship_audit import audit_relationships
 
 BATCH_SIZE = 3
 
+def collect_grounding_failures(semantic_reports: dict) -> dict:
+    """Collect concepts flagged for low source-text overlap."""
+    return {
+        source: report["grounding_flags"]
+        for source, report in semantic_reports.items()
+        if report.get("grounding_flags")
+    }
 
 def build_page_plan(pdf_files, max_pages=None, max_batches=None):
     """Plan generation pages without calling an LLM."""
@@ -366,13 +373,7 @@ def main() -> int:
         # Temporary extraction, cleaning and validation files are now
         # removed automatically when the TemporaryDirectory closes.
 
-        failures = (
-            structure_failures
-            or provenance_failures
-            or text_findings
-            or link_errors
-        )
-
+        grounding_failures = collect_grounding_failures(semantic_reports)       
         # Promote only a knowledge base that passes required checks.
         if not failures:
             if unified_dir.exists():
@@ -397,6 +398,7 @@ def main() -> int:
             "text_findings": text_findings,
             "broken_links": link_errors,
             "semantic_reports": semantic_reports,
+            "grounding_failures": grounding_failures,
             "missing_reverse_links": relationship_findings,
             "index": str(final_index_path),
             "required_checks_passed": not bool(failures),
@@ -422,6 +424,7 @@ def main() -> int:
         )
         print(f"  Knowledge base: {final_index_path.parent}")
         print(f"  Report: {report_path}")
+        print(f"  Grounding failures: {sum(len(flags) for flags in grounding_failures.values())}")
 
         if failures:
             print("\nPipeline completed with required validation failures.")

@@ -2,6 +2,7 @@
 import json
 import sys
 from pathlib import Path
+from scripts.run_pipeline import collect_grounding_failures
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -108,3 +109,29 @@ def test_similar_concepts_are_flagged_as_duplicates(tmp_path):
 
     assert len(report["duplicate_candidates"]) == 1
     assert report["duplicate_candidates"][0]["similarity"] >= 0.60
+
+def test_collect_grounding_failures_returns_flagged_sources():
+    semantic_reports = {
+        "jess103": {
+            "grounding_flags": [
+                {"file": "water_disputes.md", "overlap": 0.0}
+            ]
+        },
+        "jess104": {
+            "grounding_flags": []
+        },
+    }
+
+    failures = collect_grounding_failures(semantic_reports)
+
+    assert list(failures) == ["jess103"]
+    assert len(failures["jess103"]) == 1
+
+
+def test_collect_grounding_failures_returns_empty_dict_when_clean():
+    semantic_reports = {
+        "jess103": {"grounding_flags": []},
+        "jess104": {"grounding_flags": []},
+    }
+
+    assert collect_grounding_failures(semantic_reports) == {}
