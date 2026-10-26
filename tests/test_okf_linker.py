@@ -1,9 +1,9 @@
 
 from pathlib import Path
+from unittest import result
 
 import yaml
 from unittest.mock import MagicMock, patch
-
 from src.generation.okf_linker import write_related_links
 from src.generation.okf_linker import write_concept_index
 from src.generation.okf_linker import find_related_concepts
@@ -74,7 +74,7 @@ def test_find_related_concepts_filters_invalid_and_self_links():
     ]
 
     mock_response = MagicMock()
-    mock_response.choices[0].message.content = """
+    mock_response.message.content = """
     {
       "relationships": [
         {
@@ -90,19 +90,17 @@ def test_find_related_concepts_filters_invalid_and_self_links():
     }
     """
 
-    with patch("src.generation.okf_linker.Groq") as mock_groq:
-        mock_groq.return_value.chat.completions.create.return_value = (
-            mock_response
-        )
+    with patch(
+        "src.generation.okf_linker.ollama.chat",
+        return_value=mock_response,
+    ) as mock_chat:
+        result = find_related_concepts(catalogue)
 
-        with patch.dict(
-            "os.environ",
-            {"GROQ_API_KEY": "test-key"},
-        ):
-            result = find_related_concepts(catalogue)
-
-    assert result["KC-TEST-001"] == ["KC-TEST-002"]
-    assert result["KC-TEST-002"] == []
+    mock_chat.assert_called_once()
+    assert result == {
+        "KC-TEST-001": ["KC-TEST-002"],
+        "KC-TEST-002": [],
+    }
 
 
 def test_find_related_concepts_respects_max_related():
@@ -113,7 +111,7 @@ def test_find_related_concepts_respects_max_related():
     ]
 
     mock_response = MagicMock()
-    mock_response.choices[0].message.content = """
+    mock_response.message.content = """
     {
       "relationships": [
         {
@@ -127,34 +125,72 @@ def test_find_related_concepts_respects_max_related():
     }
     """
 
-    with patch("src.generation.okf_linker.Groq") as mock_groq:
-        mock_groq.return_value.chat.completions.create.return_value = (
-            mock_response
+    with patch(
+        "src.generation.okf_linker.ollama.chat",
+        return_value=mock_response,
+    ) as mock_chat:
+        result = find_related_concepts(
+            catalogue,
+            max_related=1,
         )
 
-        with patch.dict(
-            "os.environ",
-            {"GROQ_API_KEY": "test-key"},
-        ):
-            result = find_related_concepts(
-                catalogue,
-                max_related=1,
-            )
-
-    assert result["KC-TEST-001"] == ["KC-TEST-002"]
+    mock_chat.assert_called_once()
+    assert result == {
+        "KC-TEST-001": ["KC-TEST-002"],
+        "KC-TEST-002": [],
+        "KC-TEST-003": [],
+    }
     assert len(result["KC-TEST-001"]) <= 1
 
+def test_find_related_concepts_respects_max_related():
+    catalogue = [
+        {"id": "KC-TEST-001", "title": "Resources"},
+        {"id": "KC-TEST-002", "title": "Planning"},
+        {"id": "KC-TEST-003", "title": "Conservation"},
+    ]
+
+    mock_response = MagicMock()
+    mock_response.message.content = """
+    {
+      "relationships": [
+        {
+          "source_id": "KC-TEST-001",
+          "related_ids": [
+            "KC-TEST-002",
+            "KC-TEST-003"
+          ]
+        }
+      ]
+    }
+    """
+
+    with patch(
+        "src.generation.okf_linker.ollama.chat",
+        return_value=mock_response,
+    ) as mock_chat:
+        result = find_related_concepts(
+            catalogue,
+            max_related=1,
+        )
+
+    mock_chat.assert_called_once()
+    assert result == {
+        "KC-TEST-001": ["KC-TEST-002"],
+        "KC-TEST-002": [],
+        "KC-TEST-003": [],
+    }
+    assert len(result["KC-TEST-001"]) <= 1
 
 def test_find_related_concepts_zero_limit_skips_api_call():
     catalogue = [
         {"id": "KC-TEST-001", "title": "Resources"},
     ]
 
-    with patch("src.generation.okf_linker.Groq") as mock_groq:
+    with patch("src.generation.okf_linker.ollama.chat") as mock_chat:
         result = find_related_concepts(catalogue, max_related=0)
 
     assert result == {"KC-TEST-001": []}
-    mock_groq.assert_not_called()
+    mock_chat.assert_not_called()
 
 def test_write_related_links_creates_relative_links(tmp_path: Path):
     first = tmp_path / "resources.md"

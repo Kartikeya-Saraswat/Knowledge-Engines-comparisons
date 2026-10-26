@@ -1,13 +1,12 @@
 
 import re
 from pathlib import Path
-
+import ollama
 import yaml
 import json
 import os
-
 from dotenv import load_dotenv
-from groq import Groq
+
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -93,12 +92,7 @@ def find_related_concepts(
     if not catalogue:
         return {}
 
-    api_key = os.getenv("GROQ_API_KEY")
-    if not api_key:
-        raise RuntimeError("GROQ_API_KEY is missing from .env")
-
-    model = os.getenv("GROQ_MODEL", "llama-3.3-70b-versatile")
-    client = Groq(api_key=api_key)
+    model = os.getenv("OLLAMA_MODEL", "qwen3:8b")
 
     # Send only the information needed to identify relationships.
     concept_summaries = [
@@ -141,7 +135,7 @@ Catalogue:
 {json.dumps(concept_summaries, ensure_ascii=False)}
 """
 
-    response = client.chat.completions.create(
+    response = ollama.chat(
         model=model,
         messages=[
             {
@@ -153,11 +147,11 @@ Catalogue:
             },
             {"role": "user", "content": prompt},
         ],
-        temperature=0.1,
-        response_format={"type": "json_object"},
+        format="json",
+        options={"temperature": 0.1},
     )
 
-    result = json.loads(response.choices[0].message.content)
+    result = json.loads(response.message.content)
     relationships = result.get("relationships", [])
 
     if not isinstance(relationships, list):
