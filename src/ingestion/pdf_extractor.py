@@ -3,6 +3,7 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
+from src.ingestion.page_mapping import detect_printed_page_label
 
 def extract_pdf_pages(pdf_path: str | Path) -> list[dict]:
     """Extract PDF text page by page, preserving 1-based page numbers."""
@@ -23,10 +24,12 @@ def extract_pdf_pages(pdf_path: str | Path) -> list[dict]:
 
     for page_number, page in enumerate(reader.pages, start=1):
         text = (page.extract_text() or "").strip()
+        page_metadata = detect_printed_page_label(text)
 
         pages.append({
             "page_number": page_number,
             "text": text,
+            **page_metadata,
         })
 
     if not any(page["text"] for page in pages):
