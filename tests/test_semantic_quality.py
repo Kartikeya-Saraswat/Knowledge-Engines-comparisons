@@ -1,8 +1,16 @@
-
 import json
 import sys
 from pathlib import Path
-from scripts.run_pipeline import collect_grounding_failures
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from scripts.run_pipeline import (
+    can_promote_knowledge_base,
+    collect_grounding_failures,
+    collect_required_failures,
+)
+from src.validation.semantic_quality import analyze_semantic_quality
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -135,3 +143,55 @@ def test_collect_grounding_failures_returns_empty_dict_when_clean():
     }
 
     assert collect_grounding_failures(semantic_reports) == {}
+
+def test_grounding_failures_block_promotion():
+    failures = collect_required_failures(
+        structure_failures={},
+        provenance_failures={},
+        grounding_failures={
+            "jess103": [
+                {"file": "water_disputes.md", "overlap": 0.0}
+            ]
+        },
+    )
+
+    assert "grounding" in failures
+    assert failures["grounding"]["jess103"]
+
+
+def test_clean_validation_allows_promotion():
+    failures = collect_required_failures(
+        structure_failures={},
+        provenance_failures={},
+        grounding_failures={},
+    )
+
+    assert failures == {}
+
+
+def test_structure_and_provenance_failures_block_promotion():
+    failures = collect_required_failures(
+        structure_failures={"concept.md": ["Missing title"]},
+        provenance_failures={"concept.md": ["Missing source page"]},
+        grounding_failures={},
+    )
+
+    assert "structure" in failures
+    assert "provenance" in failures
+
+def test_grounding_failure_prevents_promotion():
+    failures = collect_required_failures(
+        structure_failures={},
+        provenance_failures={},
+        grounding_failures={
+            "jess103": [{"file": "water_disputes.md", "overlap": 0.0}]
+        },
+    )
+
+    assert can_promote_knowledge_base(failures) is False
+
+
+def test_clean_validation_allows_promotion():
+    failures = collect_required_failures({}, {}, {})
+
+    assert can_promote_knowledge_base(failures) is True

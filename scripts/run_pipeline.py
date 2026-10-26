@@ -45,6 +45,27 @@ def collect_grounding_failures(semantic_reports: dict) -> dict:
         if report.get("grounding_flags")
     }
 
+def collect_required_failures(
+    structure_failures: dict,
+    provenance_failures: dict,
+    grounding_failures: dict,
+) -> dict:
+    """Collect all validation failures that block promotion."""
+    failures = {
+        "structure": structure_failures,
+        "provenance": provenance_failures,
+        "grounding": grounding_failures,
+    }
+    return {
+        name: findings
+        for name, findings in failures.items()
+        if findings
+    }
+
+def can_promote_knowledge_base(failures: dict) -> bool:
+    """Return whether the staged knowledge base can be promoted."""
+    return not bool(failures)
+
 def build_page_plan(pdf_files, max_pages=None, max_batches=None):
     """Plan generation pages without calling an LLM."""
     page_limits = {}
@@ -372,10 +393,25 @@ def main() -> int:
 
         # Temporary extraction, cleaning and validation files are now
         # removed automatically when the TemporaryDirectory closes.
+        grounding_failures = collect_grounding_failures(semantic_reports)
+        failures = collect_required_failures(
+            structure_failures,
+            provenance_failures,
+            grounding_failures,
+        )
 
-        grounding_failures = collect_grounding_failures(semantic_reports)       
-        # Promote only a knowledge base that passes required checks.
-        if not failures:
+        failures = {
+            "structure": structure_failures,
+            "provenance": provenance_failures,
+            "grounding": grounding_failures,
+        }
+        failures = {
+            name: findings
+            for name, findings in failures.items()
+            if findings
+        }  
+         # Promote only a knowledge base that passes required checks.
+        if can_promote_knowledge_base(failures):
             if unified_dir.exists():
                 shutil.rmtree(unified_dir)
             staging_dir.rename(unified_dir)
@@ -401,7 +437,7 @@ def main() -> int:
             "grounding_failures": grounding_failures,
             "missing_reverse_links": relationship_findings,
             "index": str(final_index_path),
-            "required_checks_passed": not bool(failures),
+            "required_checks_passed": can_promote_knowledge_base(failures),
         }
 
         reports_dir.mkdir(parents=True, exist_ok=True)
