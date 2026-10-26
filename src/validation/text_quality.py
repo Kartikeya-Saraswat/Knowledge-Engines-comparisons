@@ -11,6 +11,7 @@ SUSPICIOUS_PATTERNS = {
     "mojibake_dashes": re.compile(r"â€“|â€”|â€‘"),
     "mojibake_ellipsis_or_bullet": re.compile(r"â€¦|â€¢"),
     "unexpected_copyright_symbols": re.compile(r"Â©|Â®"),
+    "missing_space_after_comma": re.compile(r",(?=[A-Za-z])"),
 }
 
 

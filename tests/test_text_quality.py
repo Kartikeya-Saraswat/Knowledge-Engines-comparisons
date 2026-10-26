@@ -39,3 +39,10 @@ def test_includes_context():
     findings = inspect_text("The setâ€‘up failed", "document.md")
 
     assert findings[0]["context"] == "The setâ€‘up failed"
+
+def test_detects_missing_space_after_comma():
+    findings = inspect_text("Resources may be individual,community, or national.")
+
+    assert len(findings) == 1
+    assert findings[0]["issue"] == "missing_space_after_comma"
+    assert findings[0]["matched_text"] == ","
