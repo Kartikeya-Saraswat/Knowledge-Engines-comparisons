@@ -10,11 +10,28 @@ from src.ingestion.pdf_loader import PageRecord
 
 
 def test_default_chunk_settings():
-    assert DEFAULT_CHUNK_SIZE == 800
-    assert DEFAULT_CHUNK_OVERLAP == 150
+    assert DEFAULT_CHUNK_SIZE == 275
+    assert DEFAULT_CHUNK_OVERLAP == 50
 
 
-def test_chunk_size_and_overlap():
+def test_wrap_lines_are_joined_and_paragraph_breaks_are_preserved():
+    page = PageRecord(
+        "sample.pdf",
+        1,
+        "First paragraph wraps\nonto another line and ends here.\n"
+        "Second paragraph stays whole.",
+    )
+
+    chunks = chunk_pages([page], chunk_size=20, overlap=2)
+
+    assert len(chunks) == 1
+    assert chunks[0].text == (
+        "First paragraph wraps onto another line and ends here.\n\n"
+        "Second paragraph stays whole."
+    )
+
+
+def test_chunk_size_and_overlap_split_oversized_paragraph():
     words = [f"word{i}" for i in range(10)]
     chunks = chunk_pages(
         [PageRecord("sample.pdf", 1, " ".join(words))],
@@ -22,24 +39,34 @@ def test_chunk_size_and_overlap():
         overlap=2,
     )
 
-    assert [chunk.text.split() for chunk in chunks] == [
-        words[:6],
-        words[4:],
-    ]
+    assert [chunk.text.split() for chunk in chunks] == [words[:6], words[4:]]
 
 
-def test_chunk_provenance_includes_all_cross_page_sources():
+def test_cross_page_chunk_preserves_all_page_provenance():
     pages = [
         PageRecord("sample.pdf", 2, "one two three"),
         PageRecord("sample.pdf", 5, "four five six"),
     ]
 
-    chunks = chunk_pages(pages, chunk_size=4, overlap=1)
+    chunks = chunk_pages(pages, chunk_size=6, overlap=1)
 
-    assert chunks[0].text == "one two three four"
+    assert [chunk.text for chunk in chunks] == ["one two three\n\nfour five six"]
     assert chunks[0].page_numbers == (2, 5)
-    assert chunks[1].text == "four five six"
-    assert chunks[1].page_numbers == (5,)
+
+
+def test_chunks_do_not_cross_detected_section_headings():
+    page = PageRecord(
+        "sample.pdf",
+        1,
+        "First section has some content.\nSECOND SECTION\n"
+        "Second section has different content.",
+    )
+
+    chunks = chunk_pages([page], chunk_size=50, overlap=5)
+
+    assert len(chunks) == 2
+    assert "SECOND SECTION" not in chunks[0].text
+    assert chunks[1].text.startswith("SECOND SECTION")
 
 
 def test_chunk_ids_are_deterministic_and_unique():
@@ -54,7 +81,7 @@ def test_chunk_ids_are_deterministic_and_unique():
     assert len({chunk.chunk_id for chunk in first_run}) == len(first_run)
 
 
-def test_chunk_records_preserve_document_name():
+def test_chunk_records_preserve_document_and_page_metadata():
     chunks = chunk_pages(
         [PageRecord("report.pdf", 7, "hello world")], chunk_size=2, overlap=0
     )
