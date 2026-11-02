@@ -1,7 +1,7 @@
-pymupdf
-sentence-transformers
+pypdf
+fastembed
 chromadb
-groq
+ollama
 python-dotenv
 pytest
 tqdm
