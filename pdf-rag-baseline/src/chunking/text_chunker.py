@@ -67,7 +67,7 @@ def chunk_pages(
         identity = (
             f"{document_name}\0{chunk_index}\0"
             f"{chunk_size}\0{overlap}\0{chunk_text}"
-        )        
+        )
         chunk_id = sha256(identity.encode("utf-8")).hexdigest()
         chunks.append(
             ChunkRecord(
