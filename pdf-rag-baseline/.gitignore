@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# Generated data
+data/input/*
+!data/input/.gitkeep
+
+data/processed/*
+!data/processed/.gitkeep
+
+# ChromaDB
+chroma_db/
+
+# IDE
+.vscode/
