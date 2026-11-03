@@ -74,3 +74,15 @@ def test_non_pdf_file_raises_error(tmp_path: Path):
 
     with pytest.raises(ValueError, match="Expected a PDF"):
         extract_pdf_pages(text_file)
+
+
+def test_extract_pdf_pages_returns_expected_structure(tmp_path: Path):
+    pdf_path = tmp_path / "sample.pdf"
+    create_test_pdf(pdf_path)
+
+    pages = extract_pdf_pages(pdf_path)
+
+    assert isinstance(pages, list)
+    assert isinstance(pages[0], dict)
+    assert set(pages[0]) >= {"page_number", "text"}
+    assert isinstance(pages[0]["text"], str)
