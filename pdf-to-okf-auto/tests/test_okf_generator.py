@@ -1,6 +1,8 @@
 import json
 from types import SimpleNamespace
+import pytest
 
+from src.generation.okf_generator import generate_json_response
 import yaml
 
 from src.generation.okf_generator import (
@@ -208,3 +210,64 @@ def test_writer_stores_evidence_in_metadata(tmp_path):
 
     assert metadata["evidence"][0]["page_number"] == 3
     assert metadata["sources"] == ["jess101.pdf, pages 3"]
+
+
+def test_generator_retries_after_malformed_json(monkeypatch):
+    responses = [
+        SimpleNamespace(
+            message=SimpleNamespace(content='{"concepts": [')
+        ),
+        SimpleNamespace(
+            message=SimpleNamespace(
+                content='{"concepts": []}'
+            )
+        ),
+    ]
+
+    calls = []
+
+    def fake_chat(**kwargs):
+        calls.append(kwargs)
+        return responses.pop(0)
+
+    monkeypatch.setattr(
+        "src.generation.okf_generator.ollama.chat",
+        fake_chat,
+    )
+
+    result = generate_json_response("qwen3:1.7b", [])
+
+    assert result == {"concepts": []}
+    assert len(calls) == 2
+    assert calls[0]["options"]["num_predict"] == 2048
+    assert calls[1]["options"]["num_predict"] == 4096
+
+
+def test_generator_raises_after_two_malformed_responses(monkeypatch):
+    def fake_chat(**kwargs):
+        return SimpleNamespace(
+            message=SimpleNamespace(content='{"concepts": [')
+        )
+
+    monkeypatch.setattr(
+        "src.generation.okf_generator.ollama.chat",
+        fake_chat,
+    )
+
+    with pytest.raises(RuntimeError, match="invalid JSON"):
+        generate_json_response("qwen3:1.7b", [])
+
+
+def test_generator_rejects_non_object_json(monkeypatch):
+    def fake_chat(**kwargs):
+        return SimpleNamespace(
+            message=SimpleNamespace(content='["concept"]')
+        )
+
+    monkeypatch.setattr(
+        "src.generation.okf_generator.ollama.chat",
+        fake_chat,
+    )
+
+    with pytest.raises(ValueError, match="JSON object"):
+        generate_json_response("qwen3:1.7b", [])
