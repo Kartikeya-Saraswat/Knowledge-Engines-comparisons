@@ -16,6 +16,12 @@ _LIST_ITEM = re.compile(
 )
 _SECTION_LABEL = re.compile(r"^(?:chapter|unit|part|section|appendix)\b", re.I)
 _NUMBERED_HEADING = re.compile(r"^\d+(?:\.\d+)*\s+[A-Z]")
+_CALLOUT_HEADING = re.compile(
+    r"^(?:activity|activities|exercise|exercises|"
+    r"quiz(?:\s+drive)?|multiple choice questions|"
+    r"answer key|summary|case study)\s*[:.]?$",
+    re.IGNORECASE,
+    )
 _PAGE_NUMBER = re.compile(r"^\d{1,4}$")
 
 
@@ -131,11 +137,18 @@ def _extract_paragraphs(text: str, page_number: int) -> list[_Paragraph]:
 
 
 def _is_heading(line: str) -> bool:
-    if _SECTION_LABEL.match(line) or _NUMBERED_HEADING.match(line):
+    if (
+        _SECTION_LABEL.match(line)
+        or _NUMBERED_HEADING.match(line)
+        or _CALLOUT_HEADING.match(line)
+    ):
         return True
+
     if len(line.split()) > 12:
         return False
+
     letters = [character for character in line if character.isalpha()]
+
     return (
         len(letters) >= 3
         and sum(char.isupper() for char in letters) / len(letters) >= 0.8
