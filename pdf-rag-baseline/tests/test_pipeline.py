@@ -120,13 +120,13 @@ def test_answer_question_accepts_document_filter():
         embedder=embedder,
         vector_store=vector_store,
         answer_generator=FakeAnswerGenerator(),
-        top_k=4,
+        top_k=2,
     )
 
     result = pipeline.answer_question("Question?", document_name="sample.pdf")
 
     assert result.answer.startswith("The PDF says hello")
-    assert vector_store.search_calls == [([0.3, 0.4], 4, "sample.pdf")]
+    assert vector_store.search_calls == [([0.3, 0.4], 2, "sample.pdf")]
 
 
 def test_blank_question_is_rejected_before_indexing(monkeypatch):

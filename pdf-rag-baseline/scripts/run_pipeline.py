@@ -47,7 +47,7 @@ def main():
         if not question:
             continue
 
-        result = pipeline.answer_question(question, top_k=5)
+        result = pipeline.answer_question(question)
 
         print("\nAnswer:")
         print(result.answer)
