@@ -43,14 +43,8 @@ class VectorStore:
 
     def clear(self) -> None:
         """Delete and recreate both collections for a clean corpus rebuild."""
-        for name in (PDF_COLLECTION, OKF_COLLECTION):
-            try:
-                self.client.delete_collection(name)
-            except Exception as exc:
-                # Chroma raises when a collection does not exist. Re-raise
-                # unrelated failures instead of hiding storage problems.
-                if "does not exist" not in str(exc).casefold():
-                    raise
+        self.client.delete_collection(PDF_COLLECTION)
+        self.client.delete_collection(OKF_COLLECTION)
 
         self.pdf_collection = self.client.get_or_create_collection(
             name=PDF_COLLECTION,

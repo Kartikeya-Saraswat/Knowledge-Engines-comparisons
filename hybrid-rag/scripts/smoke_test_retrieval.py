@@ -63,7 +63,14 @@ def main() -> None:
         print(f"Expected textbook ranks in top 8: {expected_ranks or 'none'}")
 
     print(f"\nExpected textbook found for {hits}/{len(QUESTIONS)} questions.")
-    print("Review the ranked excerpts above to assess relevance and provenance.")
+
+    assert hits == len(QUESTIONS), (
+        f"Source coverage failed: {hits}/{len(QUESTIONS)} questions "
+        "found their expected textbook in the top 8."
+    )
+
+    print("All source coverage checks passed.")
+    print("Review ranked excerpts to assess relevance and provenance.")
 
 
 if __name__ == "__main__":

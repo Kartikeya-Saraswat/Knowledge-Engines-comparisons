@@ -43,13 +43,24 @@ class HybridRAGPipeline:
         if not pdf_files:
             raise FileNotFoundError(f"No PDFs found in {pdf_root}")
 
+        # Read every PDF before clearing the existing collections, so corrupt
+        # or unreadable input cannot destroy the currently indexed corpus.
+        pdf_pages = [(path, load_pdf(path)) for path in pdf_files]
+        for path, pages in pdf_pages:
+             if not pages:
+                raise ValueError(f"No readable pages found in PDF: {path}")
         # Validate the OKF directory before clearing the existing index.
         concepts = load_okf_directory(okf_directory)
         if not concepts:
             raise ValueError(f"No OKF concepts found in {okf_directory}")
 
         self.vector_store.clear()
-        pdf_count = sum(self.index_pdf(path) for path in pdf_files)
+        pdf_count = 0
+        for path, pages in pdf_pages:
+            chunks = chunk_pages(pages)
+            embedded_records = self.embedder.embed_pdf_chunks(chunks)
+            pdf_count += self.vector_store.upsert_pdf_chunks(embedded_records)
+
         okf_records = self.embedder.embed_okf_concepts(concepts)
         okf_count = self.vector_store.upsert_okf_concepts(okf_records)
         return {
