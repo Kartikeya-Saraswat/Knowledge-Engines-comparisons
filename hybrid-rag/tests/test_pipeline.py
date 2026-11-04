@@ -1,5 +1,5 @@
 import pytest
-
+from src.generation.answer_generator import GeneratedAnswer
 from src.pipeline import HybridRAGPipeline
 from src.embeddings.embedder import EmbeddedRecord
 from src.ingestion.pdf_loader import PageRecord
@@ -294,3 +294,30 @@ def test_hybrid_retrieval_rejects_invalid_final_top_k(pipeline):
             "resource planning",
             final_top_k=0,
         )
+
+def test_answer_question_uses_hybrid_evidence(pipeline):
+    captured = {}
+
+    def fake_generate(question, evidence):
+        captured["question"] = question
+        captured["evidence"] = evidence
+
+        return GeneratedAnswer(
+            answer="Resource planning involves identifying resources. [E1]",
+            citations=(),
+        )
+
+    pipeline.answer_generator.generate = fake_generate
+
+    result = pipeline.answer_question(
+        "What is resource planning?"
+    )
+
+    assert result.answer.startswith("Resource planning")
+    assert captured["question"] == "What is resource planning?"
+    assert captured["evidence"] == []
+
+
+def test_answer_question_rejects_empty_question(pipeline):
+    with pytest.raises(ValueError):
+        pipeline.answer_question("   ")

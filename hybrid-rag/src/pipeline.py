@@ -3,6 +3,7 @@ from pathlib import Path
 from src.chunking.text_chunker import chunk_pages
 from src.embeddings.embedder import Embedder
 from src.fusion.ranker import reciprocal_rank_fusion, FusedRecord
+from src.generation.answer_generator import AnswerGenerator, GeneratedAnswer
 from src.ingestion.pdf_loader import load_pdf
 from src.ingestion.okf_loader import load_okf_directory
 from src.retrieval.vector_store import VectorStore, RetrievedRecord
@@ -13,8 +14,10 @@ class HybridRAGPipeline:
         self,
         persist_directory: str | Path = "data/chroma_db",
         embedder: Embedder | None = None,
+        answer_generator: AnswerGenerator | None = None,
     ):
         self.embedder = embedder or Embedder()
+        self.answer_generator = answer_generator or AnswerGenerator()
         self.vector_store = VectorStore(persist_directory)
 
     def index_pdf(self, pdf_path: str | Path) -> int:
@@ -39,8 +42,6 @@ class HybridRAGPipeline:
         query: str,
         top_k: int = 5,
     ) -> list[RetrievedRecord]:
-        """Retrieve relevant PDF chunks."""
-
         query_embedding = self.embedder.embed_query(query)
 
         return self.vector_store.search_pdf(
@@ -53,8 +54,6 @@ class HybridRAGPipeline:
         query: str,
         top_k: int = 5,
     ) -> list[RetrievedRecord]:
-        """Retrieve relevant OKF concepts."""
-
         query_embedding = self.embedder.embed_query(query)
 
         return self.vector_store.search_okf(
@@ -92,6 +91,27 @@ class HybridRAGPipeline:
         )
 
         return fused_results[:final_top_k]
+
+    def answer_question(
+        self,
+        question: str,
+        pdf_top_k: int = 5,
+        okf_top_k: int = 5,
+        final_top_k: int = 5,
+    ) -> GeneratedAnswer:
+        """Retrieve hybrid evidence and generate a grounded answer."""
+
+        evidence = self.retrieve_hybrid(
+            query=question,
+            pdf_top_k=pdf_top_k,
+            okf_top_k=okf_top_k,
+            final_top_k=final_top_k,
+        )
+
+        return self.answer_generator.generate(
+            question=question,
+            evidence=evidence,
+        )
 
     def collection_counts(self) -> dict[str, int]:
         return self.vector_store.collection_counts()
