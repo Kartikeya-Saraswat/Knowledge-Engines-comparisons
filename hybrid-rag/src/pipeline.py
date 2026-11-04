@@ -2,6 +2,7 @@ from pathlib import Path
 
 from src.chunking.text_chunker import chunk_pages
 from src.embeddings.embedder import Embedder
+from src.fusion.ranker import reciprocal_rank_fusion, FusedRecord
 from src.ingestion.pdf_loader import load_pdf
 from src.ingestion.okf_loader import load_okf_directory
 from src.retrieval.vector_store import VectorStore, RetrievedRecord
@@ -60,6 +61,37 @@ class HybridRAGPipeline:
             query_embedding=query_embedding,
             top_k=top_k,
         )
+
+    def retrieve_hybrid(
+        self,
+        query: str,
+        pdf_top_k: int = 5,
+        okf_top_k: int = 5,
+        final_top_k: int = 5,
+    ) -> list[FusedRecord]:
+        """Retrieve from PDF and OKF, then combine using RRF."""
+
+        if final_top_k <= 0:
+            raise ValueError("final_top_k must be greater than zero")
+
+        query_embedding = self.embedder.embed_query(query)
+
+        pdf_results = self.vector_store.search_pdf(
+            query_embedding=query_embedding,
+            top_k=pdf_top_k,
+        )
+
+        okf_results = self.vector_store.search_okf(
+            query_embedding=query_embedding,
+            top_k=okf_top_k,
+        )
+
+        fused_results = reciprocal_rank_fusion(
+            pdf_results=pdf_results,
+            okf_results=okf_results,
+        )
+
+        return fused_results[:final_top_k]
 
     def collection_counts(self) -> dict[str, int]:
         return self.vector_store.collection_counts()

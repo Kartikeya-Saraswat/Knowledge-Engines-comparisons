@@ -57,8 +57,25 @@ def main():
     assert pdf_results, "PDF retrieval returned no results"
     assert okf_results, "OKF retrieval returned no results"
 
-    print("\nEnd-to-end indexing and retrieval checks passed.")
+    print("\n--- Hybrid Retrieval (RRF) ---")
 
+    hybrid_results = pipeline.retrieve_hybrid(
+        query,
+        pdf_top_k=3,
+        okf_top_k=3,
+        final_top_k=5,
+    )
+
+    for result in hybrid_results:
+        print(f"\nID: {result.record_id}")
+        print(f"Source: {result.metadata['source_type']}")
+        print(f"RRF score: {result.rrf_score:.6f}")
+        print(f"Source ranks: {result.source_ranks}")
+        print(f"Text: {result.text[:300]}")
+
+    assert hybrid_results, "Hybrid retrieval returned no results"
+
+    print("\nEnd-to-end indexing and retrieval checks passed.")
 
 if __name__ == "__main__":
     main()

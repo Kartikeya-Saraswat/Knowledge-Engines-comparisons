@@ -187,3 +187,110 @@ def test_repeated_indexing_does_not_duplicate_records(
 def test_retrieval_returns_empty_for_unindexed_source(pipeline):
     assert pipeline.retrieve_pdf("resource planning") == []
     assert pipeline.retrieve_okf("resource planning") == []
+
+def test_hybrid_retrieval_combines_pdf_and_okf(
+    pipeline,
+    monkeypatch,
+):
+    import src.pipeline as pipeline_module
+
+    monkeypatch.setattr(
+        pipeline_module,
+        "load_pdf",
+        lambda path: [
+            PageRecord(
+                "sample.pdf",
+                1,
+                "PDF resource planning content.",
+            )
+        ],
+    )
+
+    monkeypatch.setattr(
+        pipeline_module,
+        "load_okf_directory",
+        lambda directory: [
+            OKFConceptRecord(
+                concept_id="KC-001",
+                title="Resource Planning",
+                description="Planning resources.",
+                tags=(),
+                content="OKF resource planning content.",
+                source_files=("sample.pdf",),
+                source_pages=(3,),
+                evidence=(),
+                related_concepts=(),
+            )
+        ],
+    )
+
+    pipeline.index_pdf("sample.pdf")
+    pipeline.index_okf_directory("sample_okf")
+
+    results = pipeline.retrieve_hybrid(
+        "What is resource planning?",
+        pdf_top_k=5,
+        okf_top_k=5,
+        final_top_k=5,
+    )
+
+    assert len(results) == 2
+
+    source_types = {
+        result.metadata["source_type"]
+        for result in results
+    }
+
+    assert source_types == {"pdf", "okf"}
+
+
+def test_hybrid_retrieval_respects_final_top_k(pipeline, monkeypatch):
+    import src.pipeline as pipeline_module
+
+    monkeypatch.setattr(
+        pipeline_module,
+        "load_pdf",
+        lambda path: [
+            PageRecord(
+                "sample.pdf",
+                1,
+                "PDF resource planning content.",
+            )
+        ],
+    )
+
+    monkeypatch.setattr(
+        pipeline_module,
+        "load_okf_directory",
+        lambda directory: [
+            OKFConceptRecord(
+                concept_id="KC-001",
+                title="Resource Planning",
+                description="Planning resources.",
+                tags=(),
+                content="OKF resource planning content.",
+                source_files=("sample.pdf",),
+                source_pages=(3,),
+                evidence=(),
+                related_concepts=(),
+            )
+        ],
+    )
+
+    pipeline.index_pdf("sample.pdf")
+    pipeline.index_okf_directory("sample_okf")
+
+    results = pipeline.retrieve_hybrid(
+        "What is resource planning?",
+        final_top_k=1,
+    )
+
+    assert len(results) == 1
+
+
+def test_hybrid_retrieval_rejects_invalid_final_top_k(pipeline):
+    with pytest.raises(ValueError):
+        pipeline.retrieve_hybrid(
+            "resource planning",
+            final_top_k=0,
+        )
