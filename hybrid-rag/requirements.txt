@@ -1,0 +1,8 @@
+pypdf
+fastembed
+chromadb
+ollama
+python-dotenv
+PyYAML
+pytest
+tqdm
