@@ -29,6 +29,35 @@ class HybridRAGPipeline:
 
         return self.vector_store.upsert_pdf_chunks(embedded_records)
 
+    def rebuild_index(
+        self,
+        pdf_directory: str | Path,
+        okf_directory: str | Path,
+    ) -> dict[str, int]:
+        """Clear both collections and rebuild them from complete directories."""
+        pdf_root = Path(pdf_directory)
+        if not pdf_root.is_dir():
+            raise NotADirectoryError(f"PDF input directory not found: {pdf_root}")
+
+        pdf_files = sorted(pdf_root.rglob("*.pdf"))
+        if not pdf_files:
+            raise FileNotFoundError(f"No PDFs found in {pdf_root}")
+
+        # Validate the OKF directory before clearing the existing index.
+        concepts = load_okf_directory(okf_directory)
+        if not concepts:
+            raise ValueError(f"No OKF concepts found in {okf_directory}")
+
+        self.vector_store.clear()
+        pdf_count = sum(self.index_pdf(path) for path in pdf_files)
+        okf_records = self.embedder.embed_okf_concepts(concepts)
+        okf_count = self.vector_store.upsert_okf_concepts(okf_records)
+        return {
+            "pdf_files": len(pdf_files),
+            "pdf_chunks": pdf_count,
+            "okf_concepts": okf_count,
+        }
+
     def index_okf_directory(self, directory: str | Path) -> int:
         """Load, embed and index all OKF concepts in a directory."""
 

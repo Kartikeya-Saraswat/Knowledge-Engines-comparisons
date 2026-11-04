@@ -5,25 +5,18 @@ from src.pipeline import HybridRAGPipeline
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-PDF_PATH = (
-    PROJECT_ROOT
-    / "../pdf-to-okf-auto/data/input/sample/jess101.pdf"
-).resolve()
-
-OKF_PATH = (
-    PROJECT_ROOT
-    / "../pdf-to-okf-auto/data/output/pilot_jess101/unified"
-).resolve()
+PDF_DIR = PROJECT_ROOT / "data/input/sample"
+OKF_DIR = PROJECT_ROOT / "data/input/unified_okf"
 
 
 def main():
     pipeline = HybridRAGPipeline()
 
-    print("Indexing PDF...")
-    pipeline.index_pdf(PDF_PATH)
-
-    print("\nIndexing OKF concepts...")
-    pipeline.index_okf_directory(OKF_PATH)
+    print("Clearing and rebuilding the index from all source files...")
+    counts = pipeline.rebuild_index(PDF_DIR, OKF_DIR)
+    print(f"PDF files: {counts['pdf_files']}")
+    print(f"PDF chunks indexed: {counts['pdf_chunks']}")
+    print(f"OKF concepts indexed: {counts['okf_concepts']}")
 
     question = "What is resource planning in India?"
 

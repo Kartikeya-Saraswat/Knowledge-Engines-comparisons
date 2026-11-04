@@ -8,27 +8,23 @@ from src.embeddings.embedder import Embedder
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-PDF_PATH = (
-    PROJECT_ROOT
-    / "../pdf-to-okf-auto/data/input/sample/jess101.pdf"
-).resolve()
-
-OKF_PATH = (
-    PROJECT_ROOT
-    / "../pdf-to-okf-auto/data/output/pilot_jess101/unified"
-).resolve()
+PDF_DIR = PROJECT_ROOT / "data/input/sample"
+OKF_DIR = PROJECT_ROOT / "data/input/unified_okf"
 
 
 def main():
     print("Loading PDF...")
-    pages = load_pdf(PDF_PATH)
-    chunks = chunk_pages(pages)
+    pdf_files = sorted(PDF_DIR.rglob("*.pdf"))
+    pages = [page for pdf_path in pdf_files for page in load_pdf(pdf_path)]
+    chunks_by_pdf = [chunk_pages(load_pdf(pdf_path)) for pdf_path in pdf_files]
+    chunks = [chunk for pdf_chunks in chunks_by_pdf for chunk in pdf_chunks]
 
+    print(f"PDF files: {len(pdf_files)}")
     print(f"PDF pages: {len(pages)}")
     print(f"PDF chunks: {len(chunks)}")
 
     print("\nLoading OKF concepts...")
-    concepts = load_okf_directory(OKF_PATH)
+    concepts = load_okf_directory(OKF_DIR)
 
     print(f"OKF concepts: {len(concepts)}")
 
