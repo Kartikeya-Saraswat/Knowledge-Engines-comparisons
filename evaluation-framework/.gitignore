@@ -1,0 +1,24 @@
+﻿# Python environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Generated vector indexes
+data/indexes/**
+
+# Generated experiment results
+results/**
+
+# Keep directory placeholders
+!data/indexes/**/.gitkeep
+!results/.gitkeep
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

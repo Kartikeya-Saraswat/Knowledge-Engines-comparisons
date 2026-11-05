@@ -1,0 +1,49 @@
+﻿project:
+  name: knowledge-retrieval-evaluation
+  version: "0.1.0"
+  random_seed: 42
+
+dataset:
+  pdf_directory: ../pdf-to-okf-auto/data/input/sample
+  okf_directory: ../pdf-to-okf-auto/data/output/ollama_full_run/unified
+  expected_pdf_count: 9
+  expected_pdf_pages: 100
+  expected_okf_concepts: 103
+
+systems:
+  baseline:
+    name: pdf_rag_baseline
+    project_directory: ../pdf-rag-baseline
+    python_executable: ../pdf-rag-baseline/.venv/Scripts/python.exe
+    index_directory: data/indexes/baseline
+
+  hybrid:
+    name: hybrid_rag
+    project_directory: ../hybrid-rag
+    python_executable: ../hybrid-rag/.venv/Scripts/python.exe
+    index_directory: data/indexes/hybrid
+
+evaluation:
+  retrieval_top_k: [1, 3, 5, 8]
+  arms:
+    - pdf_rag_baseline
+    - okf_only_ablation
+    - hybrid_rag
+
+models:
+  embedding:
+    name: BAAI/bge-small-en-v1.5
+    dimensions: 384
+
+  generation:
+    provider: ollama
+    model: qwen3:1.7b
+    controlled_temperature: 0
+
+benchmark:
+  file: benchmark/questions.json
+
+outputs:
+  results_directory: results
+  save_raw_retrieval: true
+  save_experiment_metadata: true
