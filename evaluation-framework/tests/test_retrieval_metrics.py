@@ -44,7 +44,7 @@ def annotated_results():
 
 
 def test_precision_at_k_counts_relevant_chunks(annotated_results):
-    assert precision_at_k(annotated_results, 3) == pytest.approx(2 / 3)
+    assert precision_at_k(annotated_results, 3) == 1.0
 
 
 def test_recall_at_k_counts_unique_evidence(
@@ -63,9 +63,9 @@ def test_mrr_uses_first_relevant_rank(annotated_results):
     assert reciprocal_rank(annotated_results) == 1.0
 
 
-def test_ndcg_is_bounded(annotated_results, evidence_units):
+def test_ndcg_is_excluded(annotated_results, evidence_units):
     score = ndcg_at_k(annotated_results, evidence_units, 3)
-    assert 0.0 <= score <= 1.0
+    assert score is None
 
 
 def test_multiple_evidence_units_in_one_chunk():
@@ -89,7 +89,7 @@ def test_empty_retrieval(evidence_units):
     assert precision_at_k([], 5) == 0.0
     assert recall_at_k([], 2, 5) == 0.0
     assert reciprocal_rank([]) == 0.0
-    assert ndcg_at_k([], evidence_units, 5) == 0.0
+    assert ndcg_at_k([], evidence_units, 5) is None
 
 
 def test_unanswerable_question_with_no_evidence():
@@ -113,6 +113,23 @@ def test_evaluate_retrieval_returns_expected_metrics(
     )
 
     assert result["mrr"] == 1.0
-    assert result["precision"][3] == pytest.approx(2 / 3)
+    assert result["precision"][3] == 1.0
     assert result["recall"][3] == 1.0
     assert result["map"] is None
+    assert result["complete_success"][3] == 1.0
+    assert result["duplicate_rate"][3] == pytest.approx(1 / 3)
+
+
+def test_complete_evidence_is_independent_of_record_packing(evidence_units):
+    packed = [{"matches": [{"evidence_unit_id": "E1", "relevance": 3}, {"evidence_unit_id": "E2", "relevance": 2}]}]
+    split = [{"matches": [hit]} for hit in packed[0]["matches"]]
+    for results in (packed, split):
+        metrics = evaluate_retrieval(results, evidence_units, (2,))
+        assert metrics["recall"][2] == metrics["complete_success"][2] == 1.0
+        assert metrics["ndcg"][2] is None
+
+
+def test_mrr_respects_collected_depth_and_excludes_unanswerable():
+    records = [{'matches': []}, {'matches': [{'evidence_unit_id': 'E1', 'relevance': 3}]}]
+    assert evaluate_retrieval(records, [{'id': 'E1', 'relevance': 3}], (1,))['mrr'] == 0
+    assert evaluate_retrieval([], [], (1,))['mrr'] is None

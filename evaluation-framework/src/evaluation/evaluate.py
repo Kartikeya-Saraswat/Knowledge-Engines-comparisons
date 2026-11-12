@@ -31,9 +31,13 @@ def aggregate_metrics(records, k_values):
         "precision": {},
         "recall": {},
         "ndcg": {},
+        "complete_success": {},
+        "duplicate_rate": {},
     }
 
     for k in k_values:
+        for name in ("complete_success", "duplicate_rate"):
+            summary[name][str(k)] = mean([r["metrics"][name][k] for r in records])
         summary["precision"][str(k)] = mean([
             r["metrics"]["precision"][k] for r in records
         ])
@@ -49,12 +53,24 @@ def aggregate_metrics(records, k_values):
 
 def run_evaluation(benchmark, raw_results, k_values):
     questions = {q["id"]: q for q in benchmark}
+    if len(questions) != len(benchmark):
+        raise ValueError("Duplicate benchmark question IDs")
+    selected = raw_results.get("question_ids", list(questions))
+    if len(selected) != len(set(selected)) or set(selected) - set(questions):
+        raise ValueError("Invalid selected question IDs")
+    questions = {qid: questions[qid] for qid in selected}
+    if len(raw_results["arms"]) != len(set(raw_results["arms"])):
+        raise ValueError("Duplicate evaluation arms")
+    if "top_k_values" in raw_results and max(k_values) > max(raw_results["top_k_values"]):
+        raise ValueError("Requested K exceeds collected retrieval depth")
     detailed_records = []
     seen_pairs = set()
 
     for retrieval in raw_results["retrieval_records"]:
         question_id = retrieval["question_id"]
         arm = retrieval["arm"]
+        if arm not in raw_results["arms"]:
+            raise ValueError(f"Unexpected arm: {arm}")
 
         if question_id not in questions:
             raise ValueError(
@@ -156,11 +172,7 @@ def main():
         candidates = sorted(
             results_directory.glob("raw_retrieval_*.json")
         )
-        if not candidates:
-            raise FileNotFoundError(
-                "No raw retrieval result files found."
-            )
-        raw_path = candidates[-1]
+        raise ValueError("Specify --input explicitly, or use python -m src.evaluation.experiment")
 
     benchmark = load_json(benchmark_path)
     raw_results = load_json(raw_path)
@@ -231,7 +243,7 @@ def main():
     print("\n--- Overall Results ---")
     for arm, metrics in arm_summary.items():
         print(f"\n{arm}")
-        print(f"  MRR: {metrics['mrr']:.4f}")
+        print(f"  MRR: {metrics['mrr']}")
         if metrics["map"] is not None:
             print(f"  MAP: {metrics['map']:.4f}")
         else:
@@ -240,7 +252,7 @@ def main():
             print(
                 f"  P@{k}: {metrics['precision'][str(k)]:.4f} | "
                 f"R@{k}: {metrics['recall'][str(k)]:.4f} | "
-                f"nDCG@{k}: {metrics['ndcg'][str(k)]:.4f}"
+                f"Complete@{k}: {metrics['complete_success'][str(k)]} | nDCG: excluded"
             )
 
     print(f"\nDetailed report: {detailed_path}")

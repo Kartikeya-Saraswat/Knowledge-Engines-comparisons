@@ -33,8 +33,7 @@ def precision_at_k(annotated_results, k):
     if k < 1:
         raise ValueError("k must be positive.")
 
-    hits = _unique_evidence_hits(annotated_results[:k])
-    relevant_count = sum(bool(result) for result in hits)
+    relevant_count = sum(bool(result.get("matches")) for result in annotated_results[:k])
 
     return relevant_count / k
 
@@ -101,9 +100,9 @@ def ndcg_at_k(annotated_results, evidence_units, k):
     if ideal_dcg == 0:
         return None
 
-    actual_dcg = dcg_at_k(annotated_results, k)
-
-    return actual_dcg / ideal_dcg
+    # Excluded: an evidence-unit ideal is not comparable to record-level gain
+    # when records can cover several facts. Do not publish a misleading nDCG.
+    return None
 
 
 def evaluate_retrieval(
@@ -115,13 +114,17 @@ def evaluate_retrieval(
     Calculate retrieval metrics for one question and one arm.
     """
     total_relevant = len(evidence_units)
+    if not k_values or any(type(k) is not int or k < 1 for k in k_values):
+        raise ValueError("k_values must contain positive integers")
 
     metrics = {
-        "mrr": reciprocal_rank(annotated_results),
+        "mrr": reciprocal_rank(annotated_results[:max(k_values)]) if total_relevant else None,
         "map": None,
         "precision": {},
         "recall": {},
         "ndcg": {},
+        "complete_success": {},
+        "duplicate_rate": {},
     }
 
     for k in k_values:
@@ -136,5 +139,10 @@ def evaluate_retrieval(
         metrics["ndcg"][k] = ndcg_at_k(
             annotated_results, evidence_units, k
         )
+        metrics["complete_success"][k] = (
+            float(metrics["recall"][k] == 1.0) if total_relevant else None
+        )
+        hits = [m["evidence_unit_id"] for r in annotated_results[:k] for m in r.get("matches", [])]
+        metrics["duplicate_rate"][k] = (len(hits) - len(set(hits))) / len(hits) if hits else 0.0
 
     return metrics

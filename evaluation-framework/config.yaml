@@ -17,11 +17,22 @@ systems:
     python_executable: ../pdf-rag-baseline/.venv/Scripts/python.exe
     index_directory: data/indexes/baseline
 
+  okf:
+    name: okf_rag
+    project_directory: ../pdf-to-okf-auto
+    python_executable: ../pdf-to-okf-auto/.venv/Scripts/python.exe
+    index_directory: data/indexes/okf
+
   hybrid:
     name: hybrid_rag
     project_directory: ../hybrid-rag
     python_executable: ../hybrid-rag/.venv/Scripts/python.exe
     index_directory: data/indexes/hybrid
+
+preprocessing:
+  chunk_size: 275
+  chunk_overlap: 50
+  rrf_k: 60
 
 evaluation:
   retrieval_top_k: [1, 3, 5, 8]

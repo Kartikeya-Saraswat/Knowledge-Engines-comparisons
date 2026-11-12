@@ -1,19 +1,13 @@
 ﻿import sys
 from pathlib import Path
 
-_PROJECT_ROOT = Path(__file__).resolve().parents[2] / "hybrid-rag"
+_PROJECT_ROOT = Path(__file__).resolve().parents[2] / "pdf-to-okf-auto"
 sys.path.insert(0, str(_PROJECT_ROOT))
 import json
-import os
-import shutil
 import subprocess
-import sys
 import time
-from pathlib import Path
 
-from src.embeddings.embedder import Embedder
-from src.ingestion.okf_loader import load_okf_directory
-from src.retrieval.vector_store import VectorStore
+from src.pipeline import OKFRAGPipeline
 
 
 def build_index(okf_directory, index_directory):
@@ -23,21 +17,11 @@ def build_index(okf_directory, index_directory):
     if not okf_directory.is_dir():
         raise FileNotFoundError(f"OKF directory not found: {okf_directory}")
 
-    concepts = load_okf_directory(okf_directory)
-
-    if not concepts:
-        raise ValueError(f"No OKF concepts found in: {okf_directory}")
-
-    index_directory.mkdir(parents=True, exist_ok=True)
-
-    embedder = Embedder(model_name="BAAI/bge-small-en-v1.5")
-    vector_store = VectorStore(persist_directory=index_directory)
-
-    embedded_records = embedder.embed_okf_concepts(concepts)
-    indexed_count = vector_store.upsert_okf_concepts(embedded_records)
+    pipeline = OKFRAGPipeline(persist_directory=index_directory)
+    indexed_count = pipeline.index_okf_directory(okf_directory)
 
     return {
-        "concept_count": len(concepts),
+        "concept_count": indexed_count,
         "indexed_count": indexed_count,
         "index_directory": str(index_directory),
     }
@@ -122,25 +106,20 @@ def retrieve(request):
     question = request["question"]
     top_k = request.get("top_k", 5)
 
-    if not index_directory.exists():
+    if not (index_directory / "chroma.sqlite3").is_file():
         raise FileNotFoundError(
             f"OKF evaluation index not found: {index_directory}. "
             "Run indexing first."
         )
 
-    embedder = Embedder(model_name="BAAI/bge-small-en-v1.5")
-    vector_store = VectorStore(persist_directory=index_directory)
-
-    query_embedding = embedder.embed_query(question)
-
-    records = vector_store.search_okf(
-        query_embedding=query_embedding,
-        top_k=top_k,
-    )
+    pipeline = OKFRAGPipeline(persist_directory=index_directory)
+    if pipeline.vector_store.collection.count() == 0:
+        raise ValueError("OKF collection is empty. Rebuild it with okf_worker.py first.")
+    records = pipeline.retrieve(question, top_k=top_k)
 
     return {
         "status": "success",
-        "arm": "okf_pipeline",
+        "arm": request.get("arm", "okf_only_ablation"),
         "question": question,
         "results": [
             {

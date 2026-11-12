@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 ARM_WORKERS = {
     "pdf_rag_baseline": ("baseline", "baseline_worker.py"),
-    "okf_only_ablation": ("hybrid", "hybrid_worker.py"),
+    "okf_only_ablation": ("okf", "okf_worker.py"),
     "hybrid_rag": ("hybrid", "hybrid_worker.py"),
 }
 

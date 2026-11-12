@@ -1,0 +1,1477 @@
+{
+  "schema_version": 2,
+  "source_git_revision": "752db1202027662005a860e4874e09ee2b90bd98",
+  "scope": "Source-based evidence annotation audit; no concept regeneration or generated answers used.",
+  "support_policy": "Binary full-fact credit. Partial support is diagnostic only. Every anchor is independently sufficient; jointly required facts are split into separate units. Joint-anchor units are not accepted by this revision.",
+  "benchmark_sha256": "7f8cf21346fb619f3af69ca6870ee9c94a0bc209509a64b436226f877836fd27",
+  "concept_directory": "pdf-to-okf-auto/data/output/ollama_full_run/unified",
+  "pdf_directory": "pdf-to-okf-auto/data/input/sample",
+  "reviewed_concept_count": 103,
+  "concept_files": [
+    {
+      "id": "KC-JESS101-001",
+      "filename": "jess101__resource-classification.md",
+      "sha256": "6ab5fdaaf87f22e5ff840304910294a2ef09f6e1ed7dad25172d6a790de05bb6"
+    },
+    {
+      "id": "KC-JESS101-002",
+      "filename": "jess101__resource-planning.md",
+      "sha256": "d2c5b53195fd159cefa42ff145db874e1bf53f142b636b2254c8f8a20315b092"
+    },
+    {
+      "id": "KC-JESS101-003",
+      "filename": "jess101__resource-depletion-and-environmental-impact.md",
+      "sha256": "8d13ae73764f10cad72e293a1a0d6fc5a86b47692f15c4b2a2b3a4b352351fc9"
+    },
+    {
+      "id": "KC-JESS101-004",
+      "filename": "jess101__land-utilization-in-india.md",
+      "sha256": "2e8d6aa0f98c3c0ca4120d09f384a8a30719595bec121c0ab59fc87a5c3c8369"
+    },
+    {
+      "id": "KC-JESS101-005",
+      "filename": "jess101__land-use-pattern-in-india.md",
+      "sha256": "5be81e1de3c26b9ebc3d83c8713f143df2ec3446c5dbf2a02a78819d7db61f63"
+    },
+    {
+      "id": "KC-JESS101-006",
+      "filename": "jess101__land-degradation-and-conservation-measures.md",
+      "sha256": "8e02445896d099bf5621d871a33db6a9799c3dd6a21a129c3bcd254bf6fe0bac"
+    },
+    {
+      "id": "KC-JESS101-007",
+      "filename": "jess101__soil-classification-in-india.md",
+      "sha256": "645d8f468f4b51aefca7625e3ee72a6238ba849ada083a5cf95846271b3439a7"
+    },
+    {
+      "id": "KC-JESS101-008",
+      "filename": "jess101__soil-erosion-and-its-causes.md",
+      "sha256": "7beb5d86c4bc0a901ee5e3693efe4f80f81012a41c10095a728bf9bc7b13e70e"
+    },
+    {
+      "id": "KC-JESS101-009",
+      "filename": "jess101__types-of-soil-and-their-features.md",
+      "sha256": "0e070604bd7c647f6581edc0b88e6c323cb0164f8f46cee3bfe605d8ac59e271"
+    },
+    {
+      "id": "KC-JESS102-001",
+      "filename": "jess102__biodiversity-and-ecological-system.md",
+      "sha256": "e9b96307c54ee9bc763d83ad5177571d942e399cad610e268a6b9dcf3cc317ff"
+    },
+    {
+      "id": "KC-JESS102-002",
+      "filename": "jess102__conservation-of-forest-and-wildlife-in-india.md",
+      "sha256": "68d597aac53c4990b77d7029d3617eff45ea2fcbb331ae00a81bee72aaa3bf6a"
+    },
+    {
+      "id": "KC-JESS102-003",
+      "filename": "jess102__community-participation-in-conservation.md",
+      "sha256": "3a787bbef2e79b96fe3004d7689dae4141394f9204e40a2c353e21f5bdcf27cf"
+    },
+    {
+      "id": "KC-JESS102-004",
+      "filename": "jess102__sacred-groves-and-traditional-beliefs.md",
+      "sha256": "4633fa97d05a737403d9a97fcce79cf88bc65b19ed57e7687cc4311dee7752e1"
+    },
+    {
+      "id": "KC-JESS102-005",
+      "filename": "jess102__environmental-management-programs.md",
+      "sha256": "fe7b384dca1a780865511a2194d69b887008052c5dc124afb0874acec8c73662"
+    },
+    {
+      "id": "KC-JESS103-001",
+      "filename": "jess103__water-scarcity-and-its-causes.md",
+      "sha256": "ea05b3cc46f557f5a17633b9ed7a0419d781d0fab9cc40830c9ce19d22621200"
+    },
+    {
+      "id": "KC-JESS103-002",
+      "filename": "jess103__water-conservation-and-management.md",
+      "sha256": "8ae0c5b55f92e67bdfa1d8d5b2275391dfaa17db55fe44e6366ce7a240dcb3ae"
+    },
+    {
+      "id": "KC-JESS103-003",
+      "filename": "jess103__dams-and-their-functions.md",
+      "sha256": "8f37325d3e0d192991495abe46cdd90a5b9cc9e89a86f34e963ab2788d8c2f2e"
+    },
+    {
+      "id": "KC-JESS103-004",
+      "filename": "jess103__historical-use-of-dams.md",
+      "sha256": "b4083fc5f254274f32cd16cf9fa8c40bd142e85029e7d8e9afab2e3c97c8990d"
+    },
+    {
+      "id": "KC-JESS103-005",
+      "filename": "jess103__impact-of-dams-on-rivers-and-ecosystems.md",
+      "sha256": "79ff3107673a2a8ed7532745ff6639e9da245406394d1f60c29dad223f904eb1"
+    },
+    {
+      "id": "KC-JESS103-006",
+      "filename": "jess103__multi-purpose-projects-and-flood-control.md",
+      "sha256": "462a5eb67799cc2877b1ca260c3fc63efd97bde54ad8c067d8d0bcabb37908b0"
+    },
+    {
+      "id": "KC-JESS103-007",
+      "filename": "jess103__inter-state-water-disputes.md",
+      "sha256": "e8ffbc1e45f56aacc140810959d49b81462b17bc47181abfa742de2c4b8df78b"
+    },
+    {
+      "id": "KC-JESS103-008",
+      "filename": "jess103__rooftop-rainwater-harvesting-systems.md",
+      "sha256": "3863d9cbf241d82dab8ddbd6802b4b40b5116b4d3e329ab4c8ececf6c7ba2cc0"
+    },
+    {
+      "id": "KC-JESS103-009",
+      "filename": "jess103__water-harvesting-in-rajasthan.md",
+      "sha256": "507eb9f35a61e7336bdd07e2248da4298f582ac175ec0ee01240c12d87da9fcc"
+    },
+    {
+      "id": "KC-JESS103-010",
+      "filename": "jess103__water-scarcity-and-its-classification.md",
+      "sha256": "390c75da55833c8b8224afcb859562961965947f2b2e3ba92500e9482e25e1b2"
+    },
+    {
+      "id": "KC-JESS103-011",
+      "filename": "jess103__multi-purpose-river-projects.md",
+      "sha256": "965fcacf18ae4ad4ccb2819859f59b4b569ff8e88f45484287e7d42dda03277b"
+    },
+    {
+      "id": "KC-JESS104-001",
+      "filename": "jess104__types-of-farming-in-india.md",
+      "sha256": "bfe858a26fffbd5175ad9c6b70889dcc101daee3d7cb6923f348cd4e22c5233e"
+    },
+    {
+      "id": "KC-JESS104-002",
+      "filename": "jess104__crop-patterns-and-seasons-in-india.md",
+      "sha256": "f48a09d92ddf15bb472c1c32310b37782eb9e04e5a5202c7f6a3d89ce5f0ee66"
+    },
+    {
+      "id": "KC-JESS104-003",
+      "filename": "jess104__rice-distribution-in-india.md",
+      "sha256": "2988ed92390b96f03b0380dbff9bf6573dffdc326b2f8d21cf7a662e7052ea21"
+    },
+    {
+      "id": "KC-JESS104-004",
+      "filename": "jess104__wheat-distribution-in-india.md",
+      "sha256": "850fd647d75b8632addef0037ba3ec73a4aed72f9512733fc0a31cbc55cde715"
+    },
+    {
+      "id": "KC-JESS104-005",
+      "filename": "jess104__millets-in-india.md",
+      "sha256": "d8a836eea84756d7345dd7cfb7cf2c79feda3ee2db5286c17bfd0f11e686fef4"
+    },
+    {
+      "id": "KC-JESS104-006",
+      "filename": "jess104__bajra-distribution-in-india.md",
+      "sha256": "61f8280cfd08c0b5a764ef8f897d0b1d25a45a2c801ca1427207afa31b33d405"
+    },
+    {
+      "id": "KC-JESS104-007",
+      "filename": "jess104__ragi-distribution-in-india.md",
+      "sha256": "2a1283527b28c4301f55e3f4d7649c57b35a39055dcf9ec88b1b6daf693898fb"
+    },
+    {
+      "id": "KC-JESS104-008",
+      "filename": "jess104__maize-distribution-in-india.md",
+      "sha256": "4b25bdc837c9c09ad644768cc045c0efbafc408ea0dfef2477ffaac589da2222"
+    },
+    {
+      "id": "KC-JESS104-009",
+      "filename": "jess104__sugarcane-production.md",
+      "sha256": "0e7eedc62a5bce1728a1bf2ca1f8cda5733380c0fb86998e81461d6ec362af3c"
+    },
+    {
+      "id": "KC-JESS104-010",
+      "filename": "jess104__oil-seeds-production.md",
+      "sha256": "7ab7a8ea0834dc38cf1dfd0ad36eec50c8537f3f8573722282062fc5343dedf9"
+    },
+    {
+      "id": "KC-JESS104-011",
+      "filename": "jess104__tea-production.md",
+      "sha256": "495f3ebb79126ac3ff1115bbf5141820907333c9c540618a71b8baa4532ac521"
+    },
+    {
+      "id": "KC-JESS104-012",
+      "filename": "jess104__pulses-production.md",
+      "sha256": "85667656129462e1eaf0c01ffa6d1330b9c702fee366c982ff68f21a7b950f12"
+    },
+    {
+      "id": "KC-JESS104-013",
+      "filename": "jess104__fruit-and-vegetable-production.md",
+      "sha256": "dd74adf6c3b4b12eefc5902b781c15c7b0f118c0c19accaa908ff766134310ab"
+    },
+    {
+      "id": "KC-JESS104-014",
+      "filename": "jess104__rubber-production.md",
+      "sha256": "f5ed2af6222a1be7f7abcff4cd2bbabc7feebfcd82997d0a149eecdb5d45150a"
+    },
+    {
+      "id": "KC-JESS104-015",
+      "filename": "jess104__jute-production.md",
+      "sha256": "cd4a1a5701f66f13d4dcde21f0716443da24184a2e3b689d953cf7898bbee7b1"
+    },
+    {
+      "id": "KC-JESS104-016",
+      "filename": "jess104__land-reform-and-agricultural-development.md",
+      "sha256": "8eaeab385937a5e26f37e8afa894f4385f218655ac057fe0fe24198acdf4573f"
+    },
+    {
+      "id": "KC-JESS104-017",
+      "filename": "jess104__agricultural-schemes-and-policies.md",
+      "sha256": "beb42a9305ec220e3f6b5af16b9c20c55c91cdc25c700a7d7f955ea0031691c2"
+    },
+    {
+      "id": "KC-JESS104-018",
+      "filename": "jess104__agricultural-practices-and-crop-types.md",
+      "sha256": "f743289413690e8e04de17fbaa37829e356c9823b66b1d1f2a2c2f170b49164f"
+    },
+    {
+      "id": "KC-JESS104-019",
+      "filename": "jess104__bhoodan-and-gramdan-movements.md",
+      "sha256": "c74c08be05077718444f44bf6220d7276ee655dfab38f191642164f7ceb0d174"
+    },
+    {
+      "id": "KC-JESS105-001",
+      "filename": "jess105__mineral-resources-and-their-occurrence.md",
+      "sha256": "73f63e207086521bed7d004f6966c0e59cd445b2f3d53bb1b88a310937918253"
+    },
+    {
+      "id": "KC-JESS105-002",
+      "filename": "jess105__types-of-minerals-and-their-uses.md",
+      "sha256": "bf2b14ac0a25a92b472b24951c2929b44e94b9acc65a25f8cb2c45f0cd16e0b5"
+    },
+    {
+      "id": "KC-JESS105-003",
+      "filename": "jess105__iron-ore-distribution-in-india.md",
+      "sha256": "4f71c68aae09998caf1c6c353ab1f87d839f23a178920f675c91f39d6a35d072"
+    },
+    {
+      "id": "KC-JESS105-004",
+      "filename": "jess105__manganese-production-in-india.md",
+      "sha256": "8d4f6017b20ddb78c8ff24140d3e01e036cf46e591d7ed34dfe9afba16ce8535"
+    },
+    {
+      "id": "KC-JESS105-005",
+      "filename": "jess105__copper-production-in-india.md",
+      "sha256": "da287c207b841b98533e532908c68d91b5d41b08237f9e1a2b55d1acb71ee560"
+    },
+    {
+      "id": "KC-JESS105-006",
+      "filename": "jess105__bauxite-distribution-in-india.md",
+      "sha256": "00234c8cf0bd31d36d25feed0719928b7711755732304df1490d1b91ddbb7bfa"
+    },
+    {
+      "id": "KC-JESS105-007",
+      "filename": "jess105__mica-properties-and-uses.md",
+      "sha256": "9cf7bbe075d611870b5e581aec3fbadac2d43f6ff56ffd9ec50adf6412f3cba5"
+    },
+    {
+      "id": "KC-JESS105-008",
+      "filename": "jess105__mica-deposits-and-producers.md",
+      "sha256": "1f467777f49ea3863187cba0d2adcf62381eeae60355006158f8501e0f2bfa9b"
+    },
+    {
+      "id": "KC-JESS105-009",
+      "filename": "jess105__hazards-of-mining.md",
+      "sha256": "75b22f269dd35cfcbac910c442218dad48cc382df9b91199dd9bcd20866da2f3"
+    },
+    {
+      "id": "KC-JESS105-010",
+      "filename": "jess105__limestone-and-its-uses.md",
+      "sha256": "0b05d2844e24ab5831ef769631bf3543f9aceb47707bc8d99053ac329c9bc003"
+    },
+    {
+      "id": "KC-JESS105-011",
+      "filename": "jess105__energy-resources-and-their-classification.md",
+      "sha256": "7dbf442b03674878377199930af8c447a351c3bfc3c85cb9d7d151daed00cd47"
+    },
+    {
+      "id": "KC-JESS105-012",
+      "filename": "jess105__natural-gas-distribution-and-pipeline-infrastructure.md",
+      "sha256": "b59514a4234d08fe60fe4444b670b35ee599cfc623e614825c07a251b696eb75"
+    },
+    {
+      "id": "KC-JESS105-013",
+      "filename": "jess105__petroleum-production-and-major-fields.md",
+      "sha256": "9f6876340782f6110d0a541f048cd71660ef884479c7dd272fe2f354cfae491b"
+    },
+    {
+      "id": "KC-JESS105-014",
+      "filename": "jess105__nuclear-and-thermal-power-plants-in-india.md",
+      "sha256": "ee8b7ee021bd7f48d4a9e70708edd32b98636ed0141ba3c56bf691bce3604271"
+    },
+    {
+      "id": "KC-JESS105-015",
+      "filename": "jess105__non-conventional-energy-sources.md",
+      "sha256": "a5158aaff3fd4be2a479eef790755dc316724242613437f92069eb49bfa47931"
+    },
+    {
+      "id": "KC-JESS105-016",
+      "filename": "jess105__geothermal-energy.md",
+      "sha256": "25fb7670692c24a985e96c41747d9a7d2fc4e7125b53d0d23a5e5d301d7a3a4c"
+    },
+    {
+      "id": "KC-JESS105-017",
+      "filename": "jess105__biogas-plants.md",
+      "sha256": "47d6bf610517df2868df46a5a3049af54cc8c4ae5ea704317ef8935d2968bcf4"
+    },
+    {
+      "id": "KC-JESS105-018",
+      "filename": "jess105__mineral-classification-and-properties.md",
+      "sha256": "0d96a1da60b31fa4f6bddddb4dde4072a73c0cacdc3fa958aacbd22c3d2b47f1"
+    },
+    {
+      "id": "KC-JESS106-001",
+      "filename": "jess106__manufacturing-industries-in-india.md",
+      "sha256": "0a20d0407cea40e087f819a4b2da9b39dd1d53987879cc29b3bbf19f694739c4"
+    },
+    {
+      "id": "KC-JESS106-002",
+      "filename": "jess106__textile-industry.md",
+      "sha256": "9bce34ba450787ed887c4f7ae3606871ef10ce1bbf962ec0074c36d9fba5605f"
+    },
+    {
+      "id": "KC-JESS106-003",
+      "filename": "jess106__mineral-based-industries.md",
+      "sha256": "3b6941c6110fd3dc7bc2cb332d9279151403b8a78bdd218439057839157ed5dc"
+    },
+    {
+      "id": "KC-JESS106-004",
+      "filename": "jess106__iron-and-steel-industry.md",
+      "sha256": "24e047b200c734ac8107362c1a6ccf9439f8c9418f903e46448cda3edfe19aa1"
+    },
+    {
+      "id": "KC-JESS106-005",
+      "filename": "jess106__steel-production-and-consumption.md",
+      "sha256": "cc236d8b9701d7919e85b9364e33607f6a93265e0e6a9e7d9c8d996f4519d404"
+    },
+    {
+      "id": "KC-JESS106-006",
+      "filename": "jess106__iron-and-steel-industries.md",
+      "sha256": "33fb4189910562f2a998eb793bb93ac105eececc6d2d106afe766ae08ccbb8eb"
+    },
+    {
+      "id": "KC-JESS106-007",
+      "filename": "jess106__aluminium-smelting.md",
+      "sha256": "1420a8402ce74939901aa40f65d645d1769e1143da176d6c3215e4fb554e0746"
+    },
+    {
+      "id": "KC-JESS106-008",
+      "filename": "jess106__chemical-industries.md",
+      "sha256": "f4d85e5e9c42207221f3089527871fd5f509d473ccc8cf51ae4a8f9a6a3bad45"
+    },
+    {
+      "id": "KC-JESS106-009",
+      "filename": "jess106__fertilizer-industry.md",
+      "sha256": "4d3f1caf9fa2d7fb5d8ee2f4355ca0f772f2f1b82957e6f983b102a0b7e41eb4"
+    },
+    {
+      "id": "KC-JESS106-010",
+      "filename": "jess106__cement-industry.md",
+      "sha256": "b01c723c04a6f36975cfd572eac46e2e491eeba412182643734bc5a1c24f3b5e"
+    },
+    {
+      "id": "KC-JESS106-011",
+      "filename": "jess106__automobile-industry.md",
+      "sha256": "320c95b2cdbbfffb91c97acc4fe8f7ce13d9bc61a1719f614247e946169c4ab1"
+    },
+    {
+      "id": "KC-JESS106-012",
+      "filename": "jess106__information-technology-and-electronics-industry.md",
+      "sha256": "1189c7f2f85289586db96b2e879406dcdbac74cab568354213c9e24ad835d35c"
+    },
+    {
+      "id": "KC-JESS106-013",
+      "filename": "jess106__industrial-pollution-and-environmental-degradation.md",
+      "sha256": "44b83c59c13900d584823ac9ff3f7023b28d2bdb1802acb061c12fd44d56e9c8"
+    },
+    {
+      "id": "KC-JESS106-014",
+      "filename": "jess106__manufacturing-industries-in-india-kc-jess106-014.md",
+      "sha256": "1fb3fe4c857f1b2c1278439c414a8452107eb70baad5dc5ce401b57178f3b70d"
+    },
+    {
+      "id": "KC-JESS106-015",
+      "filename": "jess106__industry-types-and-their-raw-materials.md",
+      "sha256": "62aba297655ae90e470710a4bb0ca2f199db6ac8d6f9fd665689885d37f04a94"
+    },
+    {
+      "id": "KC-JESS107-001",
+      "filename": "jess107__transport-and-its-importance.md",
+      "sha256": "78f9b12e2ceb9e31e690f48cb7a38eadd6c3fd57bf4a488781b0d4212ae9b6b9"
+    },
+    {
+      "id": "KC-JESS107-002",
+      "filename": "jess107__roadways-in-india.md",
+      "sha256": "cadc71a17dd65e5636808a57adc863fe2c49d603042cba88ef830d8fa5ebd258"
+    },
+    {
+      "id": "KC-JESS107-003",
+      "filename": "jess107__national-highways-in-india.md",
+      "sha256": "091c32926d7c9088cdd253cb7a4d0e6c7d7836228638dd50bd6f0ad08fc3519b"
+    },
+    {
+      "id": "KC-JESS107-004",
+      "filename": "jess107__railway-infrastructure-and-classification.md",
+      "sha256": "f715cae0272d10be563d6cd8fa472febda01bb3b1056a338bf1464105739abcc"
+    },
+    {
+      "id": "KC-JESS107-005",
+      "filename": "jess107__railway-network-and-zones.md",
+      "sha256": "e6278da183214866342f04e51e89a1ef8f43f1526e43ac288b81484103aabf45"
+    },
+    {
+      "id": "KC-JESS107-006",
+      "filename": "jess107__gas-pipeline-network.md",
+      "sha256": "d7671c66554c7c2ae975227fef08fabb296c5453d959e170c3091822df797d95"
+    },
+    {
+      "id": "KC-JESS107-007",
+      "filename": "jess107__waterways-and-inland-navigation.md",
+      "sha256": "4f2e19eb7479f40f7d80542024d1a6062c5ab99646280bf844b2630621e53471"
+    },
+    {
+      "id": "KC-JESS107-008",
+      "filename": "jess107__pipeline-transport-network.md",
+      "sha256": "acdeb9a5db90580f8c9d7a11d8d3ff33f3d06721230c533bf05dd5656a04e96b"
+    },
+    {
+      "id": "KC-JESS107-009",
+      "filename": "jess107__major-inland-waterways-in-india.md",
+      "sha256": "6b048877cbffae80438bc9b74e741118273e118bb8de200875a99d737bf3eb12"
+    },
+    {
+      "id": "KC-JESS107-010",
+      "filename": "jess107__major-sea-ports-in-india.md",
+      "sha256": "b117feec9b7c1897f23c9a59e26acde4e093a7a721473c1d38b8514567b6be66"
+    },
+    {
+      "id": "KC-JESS107-011",
+      "filename": "jess107__air-travel-in-northeastern-states.md",
+      "sha256": "174163d8d8cb3de4d7061c536de37564619f7b567c07eca802f32875036e8dbb"
+    },
+    {
+      "id": "KC-JESS107-012",
+      "filename": "jess107__regional-connectivity-scheme-udan.md",
+      "sha256": "cc2cfb71ab5eed52938ddc886593fd03416be69eedb96c5ec72f9250d2704366"
+    },
+    {
+      "id": "KC-JESS107-013",
+      "filename": "jess107__international-trade-and-balance-of-trade.md",
+      "sha256": "10f623fd7b27b3eb7c40fb2b985c2e69519a90cd29ae81e77c80668b9064a781"
+    },
+    {
+      "id": "KC-JESS107-014",
+      "filename": "jess107__imported-commodities-in-india.md",
+      "sha256": "3a5e5cebe434a6b2385ad22eb844c8001c6d7c98d5cd65f9131f476f85e31a73"
+    },
+    {
+      "id": "KC-JESS107-015",
+      "filename": "jess107__exported-commodities-in-india.md",
+      "sha256": "31be76eeefbf865edb48b662d9486307f47e7573965026151e37a921ee9bf1b3"
+    },
+    {
+      "id": "KC-JESS107-016",
+      "filename": "jess107__tourism-as-a-trade.md",
+      "sha256": "3c0fbe1cb552224409ea49539848f51124150065dd620e4ce2e0122eeb2ccde8"
+    },
+    {
+      "id": "KC-JESS107-017",
+      "filename": "jess107__geographical-coordinates-and-route-mapping.md",
+      "sha256": "d60bd85e6e67e38dacfddd233ae8f3b5cf051c5c4fe853813fca65534b8f1d97"
+    },
+    {
+      "id": "KC-JESS1A1-001",
+      "filename": "jess1a1__environmental-organizations-in-india.md",
+      "sha256": "c8f01fdd309d4f735cc396f402ae9d9f3a5f9805a6696c3a568cd0f22b8c9cbf"
+    },
+    {
+      "id": "KC-JESS1A1-002",
+      "filename": "jess1a1__steel-plants-in-india.md",
+      "sha256": "7a6df91ff8e8dee0b4d90cd32afbe0c9acee760ed6d374e56c543910fcc54a22"
+    },
+    {
+      "id": "KC-JESS1PS-001",
+      "filename": "jess1ps__national-curriculum-framework-ncf-2005.md",
+      "sha256": "6dc1b85989d278cab3fd832fe3b53764e077e0a8b2677d3a5a0e4de06baa6542"
+    },
+    {
+      "id": "KC-JESS1PS-002",
+      "filename": "jess1ps__organization-and-institutional-context.md",
+      "sha256": "7899dd885de6df4faafedd5d8bbf411058abbcc75d7679edd7e9de128e2b737c"
+    },
+    {
+      "id": "KC-JESS1PS-003",
+      "filename": "jess1ps__rationalization-of-textbook-content.md",
+      "sha256": "b6ec620ba944cbfb9bba16bedbf182460e3af87749e9228ac430c7ac539f95ac"
+    },
+    {
+      "id": "KC-JESS1PS-004",
+      "filename": "jess1ps__textbook-development-committee.md",
+      "sha256": "307904641f3b0b3ca699c45ed3f60f0182fcf8ddff6e6693c0257cd35ef04c9e"
+    },
+    {
+      "id": "KC-JESS1PS-005",
+      "filename": "jess1ps__administrative-headquarters-of-india.md",
+      "sha256": "f94d956b950e969f9859df4936c5d11c6ea8dbd7f6633a40d16f44c4cde559d4"
+    },
+    {
+      "id": "KC-JESS1PS-006",
+      "filename": "jess1ps__geographic-information-systems-and-school-bhuvan.md",
+      "sha256": "432aab088822ac5695f3218c570aaa22c0c71d912fd2329b2ab7d523a474d58d"
+    },
+    {
+      "id": "KC-JESS1PS-007",
+      "filename": "jess1ps__fundamental-duties-of-indian-citizens.md",
+      "sha256": "29f4d96170347f31c69d15f0c6a882871313c70fa200c2e71e30237e065930f9"
+    }
+  ],
+  "pdf_files": [
+    {
+      "filename": "jess101.pdf",
+      "sha256": "e2d7e9e470c73663740410bcd5449cd2cbf3efb348c6ffc0791b8cee0da734b7"
+    },
+    {
+      "filename": "jess102.pdf",
+      "sha256": "bab59f420ede000bb0a8ed63ad1f47bd91c30d7393031fd31a9d98badd66d913"
+    },
+    {
+      "filename": "jess103.pdf",
+      "sha256": "87d91ba2705d8dab1ac3f8d74c3894a817f5d0298fd7f279d1227f9256f0b1f4"
+    },
+    {
+      "filename": "jess104.pdf",
+      "sha256": "21d1701bba940254c63db5323cdcfee573e4bd4ec634469f99d08c113a5527c8"
+    },
+    {
+      "filename": "jess105.pdf",
+      "sha256": "f402073762eb9dfd498fd321d4d845a780b80d38f46959c3d95ed5a77eb6b60d"
+    },
+    {
+      "filename": "jess106.pdf",
+      "sha256": "0817faa6575c3e105bd9a8602583b9b08ac52372b9e94e75c272fb3326136d38"
+    },
+    {
+      "filename": "jess107.pdf",
+      "sha256": "2628173d9d44300322440a320f7a8760d71d5195b902428435477d16c6ad01d4"
+    },
+    {
+      "filename": "jess1a1.pdf",
+      "sha256": "b0bc78b44ad162568659eedbc2354fd45ce498c98e9b8260f85f16935d53a0e8"
+    },
+    {
+      "filename": "jess1ps.pdf",
+      "sha256": "49863325d9e0be6339eccbbd1a8604dd1e7ef3c3f3d6d279d42449da68296eca"
+    }
+  ],
+  "question_count": 27,
+  "evidence_unit_count": 152,
+  "questions": [
+    {
+      "question_id": "JESS101-Q01",
+      "old_unit_count": 1,
+      "new_unit_count": 4,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS101-Q02",
+      "old_unit_count": 3,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E1",
+        "E2"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS101-003"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E2"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS101-003"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E3",
+            "E4",
+            "E5",
+            "E6"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS101-Q03",
+      "old_unit_count": 3,
+      "new_unit_count": 5,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E1",
+        "E2"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS101-002"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E2"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS101-002"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E3",
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS102-Q01",
+      "old_unit_count": 1,
+      "new_unit_count": 5,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E3",
+        "E4"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS102-Q02",
+      "old_unit_count": 2,
+      "new_unit_count": 2,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E1"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS102-001"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E2"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS102-Q03",
+      "old_unit_count": 3,
+      "new_unit_count": 8,
+      "added_full_support_concepts": [
+        "KC-JESS102-005"
+      ],
+      "removed_full_support_concepts": [
+        "KC-JESS102-003"
+      ],
+      "facts_without_full_okf_support": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS102-003"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS102-003"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E6",
+            "E7",
+            "E8"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS102-003"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS103-Q01",
+      "old_unit_count": 3,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E4",
+        "E5",
+        "E6"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-001"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E6"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-001"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS103-Q02",
+      "old_unit_count": 5,
+      "new_unit_count": 11,
+      "added_full_support_concepts": [
+        "KC-JESS103-005"
+      ],
+      "removed_full_support_concepts": [
+        "KC-JESS103-011"
+      ],
+      "facts_without_full_okf_support": [
+        "E2",
+        "E3",
+        "E8",
+        "E9",
+        "E11"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-011"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E4"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-011"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E5",
+            "E6"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-011"
+          ]
+        },
+        {
+          "original_unit_id": "E4",
+          "revised_unit_ids": [
+            "E8"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-011"
+          ]
+        },
+        {
+          "original_unit_id": "E5",
+          "revised_unit_ids": [
+            "E11"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-011"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS103-Q03",
+      "old_unit_count": 3,
+      "new_unit_count": 7,
+      "added_full_support_concepts": [
+        "KC-JESS103-008"
+      ],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E4",
+        "E5",
+        "E6",
+        "E7"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E3",
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-009"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E6",
+            "E7"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS103-009"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS104-Q04",
+      "old_unit_count": 1,
+      "new_unit_count": 3,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E2",
+        "E3"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS104-Q05",
+      "old_unit_count": 1,
+      "new_unit_count": 2,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS104-Q06",
+      "old_unit_count": 1,
+      "new_unit_count": 4,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS104-Q07",
+      "old_unit_count": 2,
+      "new_unit_count": 10,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E9",
+        "E10"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E8",
+            "E9",
+            "E10"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS104-Q08",
+      "old_unit_count": 3,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [
+        "KC-JESS104-001",
+        "KC-JESS104-019"
+      ],
+      "facts_without_full_okf_support": [
+        "E1",
+        "E2",
+        "E5",
+        "E6"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS104-001"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E3",
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E5",
+            "E6"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS104-019"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS105-Q04",
+      "old_unit_count": 1,
+      "new_unit_count": 3,
+      "added_full_support_concepts": [
+        "KC-JESS105-014"
+      ],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS105-Q05",
+      "old_unit_count": 1,
+      "new_unit_count": 2,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS105-Q06",
+      "old_unit_count": 2,
+      "new_unit_count": 5,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E3",
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS105-Q07",
+      "old_unit_count": 3,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E5",
+        "E6"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E5"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS105-003"
+          ]
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E6"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS105-003"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS105-Q08",
+      "old_unit_count": 2,
+      "new_unit_count": 7,
+      "added_full_support_concepts": [
+        "KC-JESS107-006"
+      ],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E6"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS106-Q04",
+      "old_unit_count": 1,
+      "new_unit_count": 3,
+      "added_full_support_concepts": [
+        "KC-JESS106-003",
+        "KC-JESS106-015"
+      ],
+      "removed_full_support_concepts": [
+        "KC-JESS106-004"
+      ],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS106-004"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS106-Q05",
+      "old_unit_count": 1,
+      "new_unit_count": 4,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS106-Q06",
+      "old_unit_count": 3,
+      "new_unit_count": 11,
+      "added_full_support_concepts": [
+        "KC-JESS101-006"
+      ],
+      "removed_full_support_concepts": [
+        "KC-JESS106-014"
+      ],
+      "facts_without_full_okf_support": [
+        "E5",
+        "E7",
+        "E8",
+        "E9",
+        "E11"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E6"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E7",
+            "E8",
+            "E9"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS106-013",
+            "KC-JESS106-014"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS106-Q07",
+      "old_unit_count": 2,
+      "new_unit_count": 2,
+      "added_full_support_concepts": [
+        "KC-JESS106-003"
+      ],
+      "removed_full_support_concepts": [
+        "KC-JESS106-005"
+      ],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E2"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS106-005"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS107-Q04",
+      "old_unit_count": 1,
+      "new_unit_count": 12,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [],
+      "facts_without_full_okf_support": [
+        "E11",
+        "E12"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1",
+            "E2",
+            "E3",
+            "E4",
+            "E5",
+            "E6",
+            "E7",
+            "E8",
+            "E9",
+            "E10",
+            "E11",
+            "E12"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS107-Q05",
+      "old_unit_count": 3,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [
+        "KC-JESS107-001"
+      ],
+      "facts_without_full_okf_support": [],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS107-001"
+          ]
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [
+            "E4"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E3",
+          "revised_unit_ids": [
+            "E5"
+          ],
+          "removed_full_support_concepts": []
+        }
+      ]
+    },
+    {
+      "question_id": "JESS107-Q06",
+      "old_unit_count": 2,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [
+        "KC-JESS107-013"
+      ],
+      "facts_without_full_okf_support": [
+        "E3",
+        "E6"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E1"
+          ],
+          "removed_full_support_concepts": []
+        },
+        {
+          "original_unit_id": "E2",
+          "revised_unit_ids": [],
+          "removed_full_support_concepts": [
+            "KC-JESS107-013"
+          ]
+        }
+      ]
+    },
+    {
+      "question_id": "JESS107-Q07",
+      "old_unit_count": 1,
+      "new_unit_count": 6,
+      "added_full_support_concepts": [],
+      "removed_full_support_concepts": [
+        "KC-JESS107-006"
+      ],
+      "facts_without_full_okf_support": [
+        "E3",
+        "E4",
+        "E5",
+        "E6"
+      ],
+      "original_unit_changes": [
+        {
+          "original_unit_id": "E1",
+          "revised_unit_ids": [
+            "E3",
+            "E4",
+            "E5",
+            "E6"
+          ],
+          "removed_full_support_concepts": [
+            "KC-JESS107-006",
+            "KC-JESS107-008"
+          ]
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Support labels are editorial judgments backed by stored excerpts; lexical validation cannot prove entailment.",
+    "The frozen generated corpus has factual contamination and lacks original stored evidence; only mapped facts are audited here.",
+    "Complete-excerpt relevance matching is now enforced; metric definitions still require separate review, and old result scores must not be compared to this revision.",
+    "Original question IDs and types retained; no claim of cross-document multi-hop coverage is added."
+  ],
+  "matching_policy": {
+    "version": 1,
+    "pdf": "Correct document and all cited physical pages; every required quote in order in one record. Default to entire source quotation for legacy anchors.",
+    "okf": "Audited full concept ID plus all full-support excerpts in order in one record; partial annotations never earn full credit.",
+    "normalization": "Unicode NFKC and case folding; ignore formatting whitespace and punctuation; preserve numeric ratio, decimal, fraction and percent meaning, numeric boundaries, letters, digits, negations and repeated words.",
+    "limitation": "Conservative lexical evidence matching, not semantic entailment. Paraphrases and different extraction token repetitions can be false negatives."
+  }
+}

@@ -1,6 +1,13 @@
 @'
 # Knowledge Retrieval Evaluation Framework
 
+For controlled experiments, use the [single-run workflow](EXPERIMENTS.md):
+`python -m src.evaluation.experiment --repetitions 3`.
+It freezes inputs, builds fresh indexes, warms persistent workers and writes the
+exact run's metrics, timing and reproducibility reports. The older `runner.py`
+path remains a legacy retrieval collector; its subprocess times are not pure
+retrieval latency. nDCG and MAP are excluded from metric version 2.
+
 ## Objective
 
 A standalone framework to evaluate and compare three knowledge retrieval approaches using a common NCERT textbook corpus.
@@ -11,9 +18,11 @@ A standalone framework to evaluate and compare three knowledge retrieval approac
 Retrieves relevant text chunks directly from original PDF textbooks using vector similarity search.
 
 ### B. OKF-only Retrieval (Ablation)
-Retrieves structured OKF concepts using the existing retrieval components in Hybrid RAG.
-
-This is an experimental ablation, not an independently implemented QA system.
+Retrieves structured OKF concepts through the standalone `pdf-to-okf-auto` pipeline.
+The historical evaluation arm name `okf_only_ablation` is retained for report compatibility.
+It uses its own converter environment and `data/indexes/okf` index. Build this index
+with `adapters/okf_worker.py`'s `index` operation before running evaluation;
+old indexes created with Hybrid RAG's collections must be rebuilt.
 
 ### C. Hybrid RAG
 Retrieves from both PDF chunks and OKF concepts and combines their rankings using Reciprocal Rank Fusion (RRF).
