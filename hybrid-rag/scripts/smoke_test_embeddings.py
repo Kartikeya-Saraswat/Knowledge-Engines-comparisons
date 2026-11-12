@@ -8,8 +8,22 @@ from src.embeddings.embedder import Embedder
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-PDF_DIR = PROJECT_ROOT / "data/input/sample"
-OKF_DIR = PROJECT_ROOT / "data/input/unified_okf"
+PDF_DIR = (
+    PROJECT_ROOT.parent
+    / "pdf-to-okf-auto"
+    / "data"
+    / "input"
+    / "sample"
+)
+
+OKF_DIR = (
+    PROJECT_ROOT.parent
+    / "pdf-to-okf-auto"
+    / "data"
+    / "output"
+    / "ollama_full_run"
+    / "unified"
+)
 
 
 def main():

@@ -7,8 +7,22 @@ from src.pipeline import HybridRAGPipeline
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-PDF_DIR = PROJECT_ROOT / "data/input/sample"
-OKF_DIR = PROJECT_ROOT / "data/input/unified_okf"
+PDF_DIR = (
+    PROJECT_ROOT.parent
+    / "pdf-to-okf-auto"
+    / "data"
+    / "input"
+    / "sample"
+)
+
+OKF_DIR = (
+    PROJECT_ROOT.parent
+    / "pdf-to-okf-auto"
+    / "data"
+    / "output"
+    / "ollama_full_run"
+    / "unified"
+)
 
 QUESTIONS = (
     ("jess101.pdf", "What is resource planning in India?"),
@@ -25,7 +39,9 @@ QUESTIONS = (
 
 def main() -> None:
     logging.getLogger("pypdf").setLevel(logging.ERROR)
-    pipeline = HybridRAGPipeline()
+    pipeline = HybridRAGPipeline(
+        persist_directory=PROJECT_ROOT / "data" / "chroma_smoke_test"
+    )
     print("Clearing and rebuilding the index from all source files...")
     counts = pipeline.rebuild_index(PDF_DIR, OKF_DIR)
     print("Indexed:", counts)
