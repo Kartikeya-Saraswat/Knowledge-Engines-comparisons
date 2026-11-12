@@ -1,6 +1,7 @@
 
 import argparse
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -14,6 +15,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from src.ingestion.pdf_extractor import extract_pdf_pages
 from src.ingestion.save_extraction import save_extracted_pages
 from src.ingestion.clean_extractions import clean_extraction_file
+from src.ingestion.fingerprints import fingerprint_files, fingerprint_concepts
 from src.generation.okf_generator import (
     generate_concepts,
     write_okf_concepts,
@@ -101,7 +103,22 @@ def resolve_path(value: str) -> Path:
     return path if path.is_absolute() else PROJECT_ROOT / path
 
 
-def main() -> int:
+def run_qa(args, output_root, unified_dir):
+    if not (args.question or args.interactive):
+        return
+    from src.pipeline import OKFRAGPipeline
+    from scripts.query_okf import answer_questions
+
+    index_directory = (
+        resolve_path(args.index_dir) if args.index_dir else output_root / "chroma_db"
+    )
+    qa = OKFRAGPipeline(index_directory, answer_model=args.answer_model)
+    qa.ensure_okf_directory(unified_dir)
+    answer_questions(qa, question=args.question,
+                     interactive=args.interactive, top_k=args.top_k)
+
+
+def main(argv=None) -> int:
     parser = argparse.ArgumentParser(
         description="Process PDFs into a unified OKF knowledge base."
     )
@@ -144,7 +161,20 @@ def main() -> int:
         help="Enable LLM-based relationship discovery.",
     )
 
-    args = parser.parse_args()
+    parser.add_argument("--question", help="Answer a question after successful conversion.")
+    parser.add_argument("--interactive", action="store_true",
+                        help="Start OKF-only QA after successful conversion.")
+    parser.add_argument("--top-k", type=int, default=5)
+    parser.add_argument("--answer-model", default=None)
+    parser.add_argument("--index-dir", default=None,
+                        help="OKF vector index directory (default: OUTPUT/chroma_db).")
+    reuse_group = parser.add_mutually_exclusive_group()
+    reuse_group.add_argument("--force-rebuild", action="store_true",
+                             help="Regenerate concepts even if a completed corpus exists.")
+    reuse_group.add_argument("--reuse-concepts", action="store_true",
+                             help="Use existing concepts without reconverting or checking input PDFs.")
+
+    args = parser.parse_args(argv)
 
     input_dir = resolve_path(args.input_dir)
     output_root = resolve_path(args.output_dir)
@@ -155,6 +185,28 @@ def main() -> int:
         parser.error("--max-pages must be at least 1.")
     if args.max_batches is not None and args.max_batches < 1:
         parser.error("--max-batches must be at least 1.")
+    if args.top_k <= 0:
+        parser.error("--top-k must be greater than zero.")
+    if args.question is not None and not args.question.strip():
+        parser.error("--question cannot be empty.")
+
+    unified_dir = output_root / "unified"
+    reports_dir = output_root / "reports"
+    report_path = reports_dir / "pipeline_summary.json"
+    has_concepts = unified_dir.is_dir() and any(
+        path.name.casefold() != "index.md" for path in unified_dir.glob("*.md")
+    )
+    if args.reuse_concepts:
+        if not has_concepts:
+            parser.error("No completed concepts found in OUTPUT/unified. Finish conversion first.")
+        errors = validate_okf_directory(unified_dir)
+        if any(errors.values()):
+            parser.error("Existing OKF concepts have structure errors; inspect them before reuse.")
+        print(f"Reusing saved OKF concepts: {unified_dir}")
+        print("Input PDFs and conversion provenance were not revalidated.")
+        if not args.dry_run:
+            run_qa(args, output_root, unified_dir)
+        return 0
 
     if not input_dir.is_dir():
         raise NotADirectoryError(f"Input directory not found: {input_dir}")
@@ -169,6 +221,37 @@ def main() -> int:
             "Multiple PDFs have the same filename stem. "
             "Rename them to unique names before processing."
         )
+
+    conversion_signature = {
+        "version": 1,
+        "pdf_fingerprint": fingerprint_files(pdf_files, input_dir),
+        "model": os.getenv("OLLAMA_MODEL", "qwen3:8b"),
+        "batch_size": BATCH_SIZE,
+        "max_pages": args.max_pages,
+        "max_batches": args.max_batches,
+        "link": args.link,
+        "max_related": args.max_related,
+    }
+    if has_concepts and not args.force_rebuild:
+        try:
+            previous = json.loads(report_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            previous = {}
+        if not isinstance(previous, dict):
+            previous = {}
+        if "conversion_signature" not in previous:
+            parser.error(
+                "Saved concepts predate reuse tracking. Use --reuse-concepts to query "
+                "them, or --force-rebuild to regenerate them explicitly."
+            )
+        if (previous.get("required_checks_passed") is True
+                and previous.get("conversion_signature") == conversion_signature
+                and previous.get("concept_fingerprint") == fingerprint_concepts(unified_dir)):
+            print(f"Reusing saved OKF concepts: {unified_dir}")
+            if not args.dry_run:
+                run_qa(args, output_root, unified_dir)
+            return 0
+        print("Input PDFs, conversion settings, or saved concepts changed; rebuilding concepts.")
 
     page_limits = build_page_plan(
         pdf_files,
@@ -201,8 +284,6 @@ def main() -> int:
         return 0
 
     output_root.mkdir(parents=True, exist_ok=True)
-    reports_dir = output_root / "reports"
-    unified_dir = output_root / "unified"
     staging_dir = output_root / ".unified_staging"
 
     # Keep the previous unified knowledge base intact until the new
@@ -416,6 +497,10 @@ def main() -> int:
             print(f"Failed candidate retained at: {staging_dir}")
 
         summary = {
+            "conversion_signature": conversion_signature,
+            "concept_fingerprint": (
+                fingerprint_concepts(unified_dir) if not failures else None
+            ),
             "input_dir": str(input_dir),
             "pdf_count": len(pdf_files),
             "concept_count": len(catalogue),
@@ -431,7 +516,6 @@ def main() -> int:
         }
 
         reports_dir.mkdir(parents=True, exist_ok=True)
-        report_path = reports_dir / "pipeline_summary.json"
         report_path.write_text(
             json.dumps(summary, indent=2, ensure_ascii=False),
             encoding="utf-8",
@@ -457,14 +541,15 @@ def main() -> int:
             return 1
 
         print("\nPipeline completed; required checks passed.")
+        run_qa(args, output_root, unified_dir)
         return 0
 
     except Exception:
-        # Keep the staging directory for diagnosis, but never replace
-        # the previous final knowledge base after an unexpected error.
+        # Conversion failures retain staging for diagnosis. QA can fail after
+        # successful promotion, so do not claim the previous corpus is intact.
         print(
-            "\nPipeline failed. The previous unified knowledge base "
-            "has not been replaced."
+            "\nPipeline failed. Inspect the report and output to determine "
+            "whether conversion completed before the failure."
         )
         print(f"Inspect staging output if present: {staging_dir}")
         raise

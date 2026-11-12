@@ -4,6 +4,8 @@ __pycache__/
 .pytest_cache/
 .env
 .env.*
+!.env.example
+data/chroma_db/
 data/input/*
 data/output/*
 !.gitkeep
