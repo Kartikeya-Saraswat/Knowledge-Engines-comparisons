@@ -400,16 +400,6 @@ def main() -> int:
             grounding_failures,
         )
 
-        failures = {
-            "structure": structure_failures,
-            "provenance": provenance_failures,
-            "grounding": grounding_failures,
-        }
-        failures = {
-            name: findings
-            for name, findings in failures.items()
-            if findings
-        }  
          # Promote only a knowledge base that passes required checks.
         if can_promote_knowledge_base(failures):
             if unified_dir.exists():
