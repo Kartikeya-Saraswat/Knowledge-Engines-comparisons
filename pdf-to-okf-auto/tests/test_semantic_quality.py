@@ -159,7 +159,7 @@ def test_grounding_failures_block_promotion():
     assert failures["grounding"]["jess103"]
 
 
-def test_clean_validation_allows_promotion():
+def test_clean_validation_allows_returns_no_required_failures():
     failures = collect_required_failures(
         structure_failures={},
         provenance_failures={},

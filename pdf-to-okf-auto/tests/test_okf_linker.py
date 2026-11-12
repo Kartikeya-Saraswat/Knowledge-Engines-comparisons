@@ -142,45 +142,6 @@ def test_find_related_concepts_respects_max_related():
     }
     assert len(result["KC-TEST-001"]) <= 1
 
-def test_find_related_concepts_respects_max_related():
-    catalogue = [
-        {"id": "KC-TEST-001", "title": "Resources"},
-        {"id": "KC-TEST-002", "title": "Planning"},
-        {"id": "KC-TEST-003", "title": "Conservation"},
-    ]
-
-    mock_response = MagicMock()
-    mock_response.message.content = """
-    {
-      "relationships": [
-        {
-          "source_id": "KC-TEST-001",
-          "related_ids": [
-            "KC-TEST-002",
-            "KC-TEST-003"
-          ]
-        }
-      ]
-    }
-    """
-
-    with patch(
-        "src.generation.okf_linker.ollama.chat",
-        return_value=mock_response,
-    ) as mock_chat:
-        result = find_related_concepts(
-            catalogue,
-            max_related=1,
-        )
-
-    mock_chat.assert_called_once()
-    assert result == {
-        "KC-TEST-001": ["KC-TEST-002"],
-        "KC-TEST-002": [],
-        "KC-TEST-003": [],
-    }
-    assert len(result["KC-TEST-001"]) <= 1
-
 def test_find_related_concepts_zero_limit_skips_api_call():
     catalogue = [
         {"id": "KC-TEST-001", "title": "Resources"},
