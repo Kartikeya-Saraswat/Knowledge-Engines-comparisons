@@ -1,0 +1,1153 @@
+[
+  {
+    "id": "JESS101-Q01",
+    "question": "On what four bases are resources classified, and what are the categories under each basis?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Resources are classified on four bases: origin (biotic and abiotic), exhaustibility (renewable and non-renewable), ownership (individual, community, national and international), and status of development (potential, developed stock and reserves).",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "These resources can be classified in the following ways– (a) On the basis of origin – biotic and abiotic (b) On the basis of exhaustibility – renewable and non-renewable (c) On the basis of ownership – individual, community, national and international (d) On the basis of status of development – potential, developed stock and reserves."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS101-Q02",
+    "question": "What major social and environmental problems have resulted from the indiscriminate use and exploitation of resources?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Indiscriminate resource use has caused resource depletion to satisfy the greed of a few individuals, concentration of resources in a few hands leading to rich and poor sections of society, and ecological crises such as global warming, ozone layer depletion, environmental pollution and land degradation.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Depletion of resources for satisfying the greed of a few individuals."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Accumulation of resources in few hands, which, in turn, divided the society into two segments i.e. haves and have nots or rich and poor."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Indiscriminate exploitation of resources has led to global ecological crises such as, global warming, ozone layer depletion, environmental pollution and land degradation."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS101-Q03",
+    "question": "Why does India require balanced resource planning, and what are the three major stages involved in resource planning?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "India requires balanced resource planning because resources are unevenly distributed across regions, with some regions rich in certain resources but deficient in others. For example, Rajasthan has abundant solar and wind energy but lacks water resources. The three stages are: (1) identification and inventory of resources through surveying, mapping and qualitative and quantitative estimation; (2) developing a planning structure with appropriate technology, skills and institutional arrangements; and (3) matching resource development plans with overall national development plans.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "There are regions which are rich in certain types of resources but are deficient in some other resources."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "The state of Rajasthan is very well endowed with solar and wind energy but lacks in water resources."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "Resource planning is a complex process which involves: (i) identification and inventory of resources across the regions of the country. This involves surveying, mapping and qualitative and quantitative estimation and measurement of the resources. (ii) Evolving a planning structure endowed with appropriate technology, skill and institutional set up for implementing resource development plans. (iii) Matching the resource development plans with overall national development plans."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q01",
+    "question": "What measures were introduced under the Indian Wildlife (Protection) Act, 1972, to protect endangered wildlife species?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "The Indian Wildlife (Protection) Act was implemented in 1972 with provisions to protect habitats. Measures included publishing an all-India list of protected species, banning hunting, providing legal protection to habitats and restricting trade in wildlife.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Act was implemented in 1972, with various provisions for protecting habitats."
+          },
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "The thrust of the programme was towards protecting the remaining population of certain endangered species by banning hunting, giving legal protection to their habitats, and restricting trade in wildlife."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q02",
+    "question": "How does biodiversity contribute to maintaining ecological systems, and why are forests important in this relationship?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Biodiversity represents the interconnected variety of living organisms within an ecological system. Plants, animals and microorganisms contribute to maintaining the quality of air, water and soil. Forests play a key role because they are primary producers on which other living beings depend.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "For example, the plants, animals and micro-organisms re-create the quality of the air we breathe, the water we drink and the soil that produces our food without which we cannot survive."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "Forests play a key role in the ecological system as these are also the primary producers on which all other living beings depend."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q03",
+    "question": "How have local communities contributed to forest and wildlife conservation in India? Explain using examples of the Bhairodev Dakav 'Sonchuri', the Chipko movement and Joint Forest Management.",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Local communities have contributed through several initiatives. In Bhairodev Dakav 'Sonchuri', five villages in Alwar, Rajasthan, declared 1,200 hectares of forest protected and established rules prohibiting hunting and outside encroachment. The Chipko movement successfully resisted deforestation and demonstrated the effectiveness of community afforestation using indigenous species. Joint Forest Management involves local village institutions in protecting and restoring degraded forests, with community members receiving benefits such as non-timber forest produce and a share in harvested timber.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "The inhabitants of five villages in the Alwar district of Rajasthan have declared 1,200 hectares of forest as the Bhairodev Dakav 'Sonchuri', declaring their own set of rules and regulations which do not allow hunting, and are protecting the wildlife against any outside encroachments."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "The famous Chipko movement in the Himalayas has not only successfully resisted deforestation in several areas but has also shown that community afforestation with indigenous species can be enormously successful."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "In India joint forest management (JFM) programme furnishes a good example for involving local communities in the management and restoration of degraded forests."
+          },
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "In return, the members of these communities are entitled to intermediary benefits like non-timber forest produces and share in the timber harvested by 'successful protection'."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q01",
+    "question": "What are the main causes of water scarcity, even in regions that have sufficient water resources?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Water scarcity can occur due to over-exploitation, excessive use and unequal access to water among different social groups. A large and growing population increases demand for domestic water and food production. Water resources are also over-exploited to expand irrigated areas for dry-season agriculture.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Most cases is caused by over-exploitation, excessive use and unequal access to water among different social groups."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "A large population requires more water not only for domestic use but also to produce more food."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Water resources are being over-exploited to expand irrigated areas for dry-season agriculture."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q02",
+    "question": "How do dams and multi-purpose river projects affect river ecosystems and the surrounding environment?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Dams and river regulation affect the natural flow of rivers, causing poor sediment flow and excessive sedimentation in reservoirs. They fragment rivers, making it difficult for aquatic animals to migrate. Reservoirs submerge existing vegetation and soil. Other consequences include floods, soil erosion, land degradation, water-borne diseases, pollution and soil salinisation resulting from changes in irrigation and cropping patterns.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Regulating and damming of rivers affect their natural flow causing poor sediment flow and excessive sedimentation at the bottom of the reservoir, resulting in rockier stream beds and poorer habitats for the rivers’ aquatic life."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Dams also fragment rivers making it difficult for aquatic fauna to migrate, especially for spawning."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "The reservoirs that are created on the floodplains also submerge the existing vegetation and soil leading to its decomposition over a period of time."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E4",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "These floods have not only devastated life and property but also caused extensive soil erosion."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E5",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "This has great ecological consequences like salinisation of the soil."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q03",
+    "question": "How do traditional rainwater harvesting systems in Rajasthan collect and preserve water, and why are underground tankas particularly useful in arid and semi-arid regions?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Traditional rainwater harvesting in Rajasthan involves collecting rainwater from rooftops and directing it through pipes into underground tanks called tankas. The first spell of rain is generally not collected because it cleans the rooftops and pipes. Subsequent rainfall is stored in the tankas. These tanks preserve water until the next rainfall and provide a reliable source of drinking water during dry periods, particularly in summer when other water sources dry up.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "In the semi-arid and arid regions of Rajasthan, particularly in Bikaner, Phalodi and Barmer, almost all the houses traditionally had underground tanks or tankas for storing drinking water."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "Rain falling on the rooftops would travel down the pipe and was stored in these underground ‘tankas’."
+          },
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "The first spell of rain was usually not collected as this would clean the roofs and the pipes. The rainwater from the subsequent showers was then collected."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "The rainwater can be stored in the tankas till the next rainfall making it an extremely reliable source of drinking water when all other sources are dried up, particularly in the summers."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS104-Q04",
+    "question": "What are India's three main cropping seasons, and when are Rabi crops generally sown and harvested?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "India has three cropping seasons: rabi, kharif and zaid. Rabi crops are sown in winter from October to December and harvested in summer from April to June.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "India has three cropping seasons — rabi, kharif and zaid. Rabi crops are sown in winter from October to December and harvested in summer from April to June."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS104-Q05",
+    "question": "Which states are major producers of Bajra, and what soil conditions favour its cultivation?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Bajra grows well on sandy soils and shallow black soil. Major producing states are Rajasthan, Uttar Pradesh, Maharashtra, Gujarat and Haryana.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Bajra grows well on sandy soils and shallow black soil. Major Bajra producing States are Rajasthan, Uttar Pradesh, Maharashtra, Gujarat and Haryana."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-006"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS104-Q06",
+    "question": "How does commercial farming differ from subsistence farming, and why can the same crop be commercial in one region but subsistence in another?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Commercial farming uses modern inputs such as HYV seeds, chemical fertilisers, insecticides and pesticides to obtain higher productivity. The degree of commercialisation varies by region; rice is a commercial crop in Haryana and Punjab but a subsistence crop in Odisha.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "The main characteristic of this type of farming is the use of higher doses of modern inputs, e.g. high yielding variety (HYV) seeds, chemical fertilisers, insecticides and pesticides in order to obtain higher productivity. The degree of commercialisation of agriculture varies from one region to another. For example, rice is a commercial crop in Haryana and Punjab, but in Odisha, it is a subsistence crop."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS104-Q07",
+    "question": "How do plantation agriculture, processing industries, labour and transport networks depend on one another?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Plantations grow a single crop over a large area using capital-intensive inputs and migrant labour; their produce is used as raw material by industries. The textbook describes tea as plantation agriculture and explains that tea processing is closely associated with the producing gardens, while transport and communication connect production areas with processing and markets.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Plantation is also a type of commercial farming. In this type of farming, a single crop is grown on a large area. The plantation has an interface of agriculture and industry. Plantations cover large tracts of land, using capital intensive inputs, with the help of migrant labourers. All the produce is used as raw material in respective industries. In India, tea, coffee, rubber, sugarcane, banana, etc., are important plantation crops. Since the production is mainly for market, a well-developed network of transport and communication connecting the plantation areas, processing industries and markets plays an important role in the development of plantations."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "Tea is a labour-intensive industry. It requires abundant, cheap and skilled labour. Tea is processed within the tea garden to restore its freshness."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-011"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS104-Q08",
+    "question": "How do land fragmentation and limited alternative livelihoods contribute to pressure on agricultural land, and how do land-reform movements attempt to address land inequality?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Inheritance fragments holdings into uneconomical sizes. With few alternative livelihoods, farmers seek maximum output from limited land, increasing pressure. Land reforms sought to consolidate fragmented holdings; Bhoodan and Gramdan encouraged voluntary land donations or village-level redistribution for landless people.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Though the ‘right of inheritance’ leading to the division of land among successive generations has rendered land-holding size uneconomical, the farmers continue to take maximum output from the limited land in the absence of alternative source of livelihood. Thus, there is enormous pressure on agricultural land."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              9
+            ],
+            "quote": "‘Land reform’ was the main focus of our First Five Year Plan. The right of inheritance had already led to fragmentation of land holdings necessitating consolidation of holdings."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-016"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess104.pdf",
+            "pages": [
+              10
+            ],
+            "quote": "Suddenly, Shri Ram Chandra Reddy stood up and offered 80 acres of land to be distributed among 80 land-less villagers. This act was known as ‘Bhoodan’. Later he travelled and introduced his ideas widely all over India. Some zamindars, owners of many villages offered to distribute some villages among the landless. It was known as Gramdan."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS104-019"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS105-Q04",
+    "question": "What are the conventional and non-conventional sources of energy described in the textbook?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Conventional sources include firewood, cattle dung cake, coal, petroleum, natural gas and electricity (hydel and thermal). Non-conventional sources include solar, wind, tidal, geothermal, biogas and atomic energy.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              9
+            ],
+            "quote": "Conventional sources include: firewood, cattle dung cake, coal, petroleum, natural gas and electricity (both hydel and thermal). Non-conventional sources include solar, wind, tidal, geothermal, biogas and atomic energy."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-011"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS105-Q05",
+    "question": "How do the geological formations in which minerals occur affect their extraction and cost?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Minerals occur in different geological formations, including veins and lodes in igneous and metamorphic rocks, beds or layers in sedimentary rocks, and residual deposits. The type of formation determines the relative ease of mining and the cost of extraction.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "The type of formation or structure in which they are found determines the relative ease with which mineral ores may be mined. This also determines the cost of extraction."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS105-Q06",
+    "question": "Why does mining create both occupational health risks and environmental degradation?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Dust and noxious fumes expose miners to pulmonary diseases, while collapsing roofs, inundation and fires threaten their safety. Mining contaminates water sources, and dumping waste and slurry degrades land and soil and increases stream and river pollution.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "The dust and noxious fumes inhaled by miners make them vulnerable to pulmonary diseases. The risk of collapsing mine roofs, inundation and fires in coalmines are a constant threat to miners."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-009"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "The water sources in the region get contaminated due to mining. Dumping of waste and slurry leads to degradation of land, soil, and increase in stream and river pollution."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-009"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS105-Q07",
+    "question": "How do the distribution of iron ore across India's major belts and the transport of extracted ore influence the mineral economy?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "India's iron ore is distributed across major belts including Odisha-Jharkhand, Durg-Bastar-Chandrapur and Ballari-Chitradurga-Chikkamagaluru-Tumakuru. The textbook gives examples of ore being exported through Visakhapatnam and transported as slurry by pipeline from Kudremukh to a port near Mangaluru, showing the role of transport links in moving mineral output to markets.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "The major iron ore belts in India are: Odisha-Jharkhand belt; Durg-Bastar-Chandrapur belt; Ballari-Chitradurga-Chikkamagaluru-Tumakuru belt in Karnataka."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-003"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "Iron ore from these mines is exported to Japan and South Korea via Vishakhapatnam port."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-003"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "The ore is transported as slurry through a pipeline to a port near Mangaluru."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-003"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS105-Q08",
+    "question": "How do the uses of natural gas across power, industry, transport and households explain the importance of pipeline infrastructure?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Natural gas is used to generate electricity, heat industries, provide raw material for chemical, petrochemical and fertiliser industries, fuel transport (CNG) and supply household cooking gas (PNG). The HVJ pipeline linked gas fields with fertiliser, power and industrial complexes, while the wider pipeline grid links gas sources with consuming markets.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              11
+            ],
+            "quote": "It is used as fuel in power sector to generate electricity, for heating purpose in industries, as raw material in chemical, petrochemical and fertilizer industries, as transport fuel and as cooking fuel."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-012"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess105.pdf",
+            "pages": [
+              11,
+              12
+            ],
+            "quote": "The first 1,700 km long Hazira-Vijaipur-Jagdishpur (HVJ) cross country gas pipeline, constructed by GAIL (India), linked Mumbai High and Bassein gas fields with various fertilizer, power and industrial complexes in western and northen India."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS105-012"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS106-Q04",
+    "question": "What are the principal raw materials used in iron and steel production, and in what approximate ratio are they required?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Iron ore, coking coal and limestone are required in an approximate ratio of 4:2:1. Manganese is also required to harden steel.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Iron ore, coking coal and lime stone are required in a ratio of approximately 4:2:1. Manganese is also required to harden the steel."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-004",
+          "KC-JESS106-005"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS106-Q05",
+    "question": "Why is the Chhotanagpur Plateau region favourable for the concentration of iron and steel industries?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "The region offers low-cost iron ore, high-grade raw materials nearby, cheap labour and growth potential in the home market.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "Chhotanagpur plateau region has the maximum concentration of iron and steel industries. It is largely, because of the relative advantages this region has for the development of this industry. These include, low cost of iron ore, high grade raw materials in proximity, cheap labour and vast growth potential in the home market."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-006"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS106-Q06",
+    "question": "How do industrial activities cause air, water (including thermal), land and noise pollution, and what measures can industries take to reduce these effects?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "The textbook identifies air, water, land and noise as four pollution categories; thermal pollution is described as a form of water pollution caused by hot water discharged into rivers. Control measures include treating industrial effluents, reducing particulate matter in air, and using appropriate treatment and pollution-control equipment.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              9
+            ],
+            "quote": "Industries are responsible for four types of pollution: (a) Air (b) Water (c) Land (d) Noise."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-013"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              9
+            ],
+            "quote": "Thermal pollution of water occurs when hot water from factories is drained into rivers."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-013"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              11
+            ],
+            "quote": "(i) minimising use water for processing by reusing and recycling it in two or more successive stages (ii) harvesting of rainwater to meet water requirements (iii) treating hot water and effluents before releasing them in rivers and ponds."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-013",
+          "KC-JESS106-014"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS106-Q07",
+    "question": "Why is iron and steel considered a basic industry, and how does its output support other manufacturing sectors?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Iron and steel is a basic industry because heavy, medium and light industries depend on it for machinery. Steel is used in engineering goods, construction materials, defence, medical, telephonic and scientific equipment, and consumer goods.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "The iron and steel industry is the basic industry since all the other industries — heavy, medium and light, depend on it for their machinery."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-004"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess106.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Steel is needed to manufacture a variety of engineering goods, construction material, defence, medical, telephonic, scientific equipment and a variety of consumer goods."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS106-004",
+          "KC-JESS106-005"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS107-Q04",
+    "question": "What are the five National Waterways listed in the textbook, and which routes do they cover?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "NW-1: Ganga between Prayagraj and Haldia; NW-2: Brahmaputra between Sadiya and Dhubri; NW-3: West-Coast Canal in Kerala; NW-4: specified stretches of the Godavari and Krishna; NW-5: specified stretches of the Brahmani and Matai rivers, Mahanadi and Brahmani delta channels, and the East Coast Canal.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "The Ganga river between Prayagraj and Haldia (1620 km)-N.W. No.1 The Brahmaputra river between Sadiya and Dhubri (891 km)-N.W. No.2 West-Coast Canal in Kerala (205 km)-N.W. No.3 Specified stretches of Godavari and Krishna rivers (1078 km)-N.W. No.4 Specified stretches of river Brahmani along with Matai river, delta channels of Mahanadi and Brahmani rivers and East Coast Canal (588 km)-N.W. No.5"
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-009"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS107-Q05",
+    "question": "What are the main reasons roadways have an advantage over railways in certain transport situations?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Roads are cheaper to construct and maintain, can cross dissected and undulating terrain and steep gradients, are economical for a few people or smaller quantities of goods over short distances, provide door-to-door service, and act as feeders to other transport modes.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "construction cost of roads is much lower than that of railway lines"
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-001",
+          "KC-JESS107-002"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "road transport is economical in transportation of few persons and relatively smaller amount of goods over short distances"
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-002"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "it also provides door-to-door service, thus the cost of loading and unloading is much lower"
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS107-Q06",
+    "question": "How do transport, communication and trade complement one another and support national economic development?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "The textbook describes transport, communication and trade as complementary. Transport moves people and goods, communication supports the exchange of information, and trade connects producers and markets; together, these systems act as lifelines of the national economy.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              1,
+              2
+            ],
+            "quote": "Transport, communication, and trade are complementary to each other. India is well-linked with the rest of the world despite its vast size, diversity, and linguistic and socio-cultural plurality. Modern means of transport and communication serve as lifelines of our nation and its modern economy."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              10
+            ],
+            "quote": "Export and import are the components of trade. The balance of trade of a country is the difference between its export and import."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-013"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS107-Q07",
+    "question": "How do pipelines compare with other modes of transport in operating costs, delays and suitability for transporting materials?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Pipelines can transport liquids, gases and some slurry materials. Although the initial cost of laying pipelines is high, subsequent running costs are minimal, and pipelines avoid trans-shipment losses and delays.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess107.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Initial cost of laying pipelines is high but subsequent running costs are minimal. It rules out trans-shipment losses or delays."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS107-006",
+          "KC-JESS107-008"
+        ]
+      }
+    ]
+  }
+]

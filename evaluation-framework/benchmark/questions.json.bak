@@ -1,0 +1,488 @@
+[
+  {
+    "id": "JESS101-Q01",
+    "question": "On what four bases are resources classified, and what are the categories under each basis?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Resources are classified on four bases: origin (biotic and abiotic), exhaustibility (renewable and non-renewable), ownership (individual, community, national and international), and status of development (potential, developed stock and reserves).",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "These resources can be classified in the following ways– (a) On the basis of origin – biotic and abiotic (b) On the basis of exhaustibility – renewable and non-renewable (c) On the basis of ownership – individual, community, national and international (d) On the basis of status of development – potential, developed stock and reserves."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS101-Q02",
+    "question": "What major social and environmental problems have resulted from the indiscriminate use and exploitation of resources?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Indiscriminate resource use has caused resource depletion to satisfy the greed of a few individuals, concentration of resources in a few hands leading to rich and poor sections of society, and ecological crises such as global warming, ozone layer depletion, environmental pollution and land degradation.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Depletion of resources for satisfying the greed of a few individuals."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Accumulation of resources in few hands, which, in turn, divided the society into two segments i.e. haves and have nots or rich and poor."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Indiscriminate exploitation of resources has led to global ecological crises such as, global warming, ozone layer depletion, environmental pollution and land degradation."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-003"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS101-Q03",
+    "question": "Why does India require balanced resource planning, and what are the three major stages involved in resource planning?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "India requires balanced resource planning because resources are unevenly distributed across regions, with some regions rich in certain resources but deficient in others. For example, Rajasthan has abundant solar and wind energy but lacks water resources. The three stages are: (1) identification and inventory of resources through surveying, mapping and qualitative and quantitative estimation; (2) developing a planning structure with appropriate technology, skills and institutional arrangements; and (3) matching resource development plans with overall national development plans.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "There are regions which are rich in certain types of resources but are deficient in some other resources."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "The state of Rajasthan is very well endowed with solar and wind energy but lacks in water resources."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess101.pdf",
+            "pages": [
+              3
+            ],
+            "quote": "Resource planning is a complex process which involves: (i) identification and inventory of resources across the regions of the country. This involves surveying, mapping and qualitative and quantitative estimation and measurement of the resources. (ii) Evolving a planning structure endowed with appropriate technology, skill and institutional set up for implementing resource development plans. (iii) Matching the resource development plans with overall national development plans."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS101-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q01",
+    "question": "What measures were introduced under the Indian Wildlife (Protection) Act, 1972, to protect endangered wildlife species?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "The Indian Wildlife (Protection) Act was implemented in 1972 with provisions to protect habitats. Measures included publishing an all-India list of protected species, banning hunting, providing legal protection to habitats and restricting trade in wildlife.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Act was implemented in 1972, with various provisions for protecting habitats."
+          },
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "The thrust of the programme was towards protecting the remaining population of certain endangered species by banning hunting, giving legal protection to their habitats, and restricting trade in wildlife."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-002"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q02",
+    "question": "How does biodiversity contribute to maintaining ecological systems, and why are forests important in this relationship?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Biodiversity represents the interconnected variety of living organisms within an ecological system. Plants, animals and microorganisms contribute to maintaining the quality of air, water and soil. Forests play a key role because they are primary producers on which other living beings depend.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "For example, the plants, animals and micro-organisms re-create the quality of the air we breathe, the water we drink and the soil that produces our food without which we cannot survive."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              1
+            ],
+            "quote": "Forests play a key role in the ecological system as these are also the primary producers on which all other living beings depend."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS102-Q03",
+    "question": "How have local communities contributed to forest and wildlife conservation in India? Explain using examples of the Bhairodev Dakav 'Sonchuri', the Chipko movement and Joint Forest Management.",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Local communities have contributed through several initiatives. In Bhairodev Dakav 'Sonchuri', five villages in Alwar, Rajasthan, declared 1,200 hectares of forest protected and established rules prohibiting hunting and outside encroachment. The Chipko movement successfully resisted deforestation and demonstrated the effectiveness of community afforestation using indigenous species. Joint Forest Management involves local village institutions in protecting and restoring degraded forests, with community members receiving benefits such as non-timber forest produce and a share in harvested timber.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "The inhabitants of five villages in the Alwar district of Rajasthan have declared 1,200 hectares of forest as the Bhairodev Dakav 'Sonchuri', declaring their own set of rules and regulations which do not allow hunting, and are protecting the wildlife against any outside encroachments."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              4
+            ],
+            "quote": "The famous Chipko movement in the Himalayas has not only successfully resisted deforestation in several areas but has also shown that community afforestation with indigenous species can be enormously successful."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "In India joint forest management (JFM) programme furnishes a good example for involving local communities in the management and restoration of degraded forests."
+          },
+          {
+            "document": "jess102.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "In return, the members of these communities are entitled to intermediary benefits like non-timber forest produces and share in the timber harvested by 'successful protection'."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS102-003"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q01",
+    "question": "What are the main causes of water scarcity, even in regions that have sufficient water resources?",
+    "type": "factual",
+    "answerable": true,
+    "expected_answer": "Water scarcity can occur due to over-exploitation, excessive use and unequal access to water among different social groups. A large and growing population increases demand for domestic water and food production. Water resources are also over-exploited to expand irrigated areas for dry-season agriculture.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Most cases is caused by over-exploitation, excessive use and unequal access to water among different social groups."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "A large population requires more water not only for domestic use but also to produce more food."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              2
+            ],
+            "quote": "Water resources are being over-exploited to expand irrigated areas for dry-season agriculture."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-001"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q02",
+    "question": "How do dams and multi-purpose river projects affect river ecosystems and the surrounding environment?",
+    "type": "conceptual",
+    "answerable": true,
+    "expected_answer": "Dams and river regulation affect the natural flow of rivers, causing poor sediment flow and excessive sedimentation in reservoirs. They fragment rivers, making it difficult for aquatic animals to migrate. Reservoirs submerge existing vegetation and soil. Other consequences include floods, soil erosion, land degradation, water-borne diseases, pollution and soil salinisation resulting from changes in irrigation and cropping patterns.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Regulating and damming of rivers affect their natural flow causing poor sediment flow and excessive sedimentation at the bottom of the reservoir, resulting in rockier stream beds and poorer habitats for the rivers’ aquatic life."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "Dams also fragment rivers making it difficult for aquatic fauna to migrate, especially for spawning."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "The reservoirs that are created on the floodplains also submerge the existing vegetation and soil leading to its decomposition over a period of time."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E4",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "These floods have not only devastated life and property but also caused extensive soil erosion."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      },
+      {
+        "id": "E5",
+        "relevance": 2,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              5
+            ],
+            "quote": "This has great ecological consequences like salinisation of the soil."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-011"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "JESS103-Q03",
+    "question": "How do traditional rainwater harvesting systems in Rajasthan collect and preserve water, and why are underground tankas particularly useful in arid and semi-arid regions?",
+    "type": "multi_hop",
+    "answerable": true,
+    "expected_answer": "Traditional rainwater harvesting in Rajasthan involves collecting rainwater from rooftops and directing it through pipes into underground tanks called tankas. The first spell of rain is generally not collected because it cleans the rooftops and pipes. Subsequent rainfall is stored in the tankas. These tanks preserve water until the next rainfall and provide a reliable source of drinking water during dry periods, particularly in summer when other water sources dry up.",
+    "evidence_units": [
+      {
+        "id": "E1",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              7
+            ],
+            "quote": "In the semi-arid and arid regions of Rajasthan, particularly in Bikaner, Phalodi and Barmer, almost all the houses traditionally had underground tanks or tankas for storing drinking water."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      },
+      {
+        "id": "E2",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "Rain falling on the rooftops would travel down the pipe and was stored in these underground ‘tankas’."
+          },
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "The first spell of rain was usually not collected as this would clean the roofs and the pipes. The rainwater from the subsequent showers was then collected."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      },
+      {
+        "id": "E3",
+        "relevance": 3,
+        "pdf_anchors": [
+          {
+            "document": "jess103.pdf",
+            "pages": [
+              8
+            ],
+            "quote": "The rainwater can be stored in the tankas till the next rainfall making it an extremely reliable source of drinking water when all other sources are dried up, particularly in the summers."
+          }
+        ],
+        "okf_concept_ids": [
+          "KC-JESS103-009"
+        ]
+      }
+    ]
+  }
+]
